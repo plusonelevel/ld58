@@ -1,11 +1,8 @@
-# Godot template
+# LD58
 
-This is a starting repo template for a Godot 4 project.
-Replace this once you have something to say about your new game.
+## About
+Entry for the Ludum Dare 58 game jam, let's go!!!
 
-## What's in the box
-- `/dist/` in .gitignore (used as build destination)
-- basic folder structure
-- input listener autoload that handles
-    - fullscreen toggle (alt+enter or f11)
-    - Esc to close
+## Useful links
+- [Repo](https://github.com/plusonelevel/ld58)
+- [LD58](https://ldjam.com/events/ludum-dare/58)
