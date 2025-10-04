@@ -1,7 +1,9 @@
 [gd_scene load_steps=30 format=4 uid="uid://ljkmuiuyun8n"]
+[gd_scene load_steps=31 format=4 uid="uid://ljkmuiuyun8n"]
 
 [ext_resource type="Script" uid="uid://dun6ixfr4iqdr" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://b63fcxorqkjmc" path="res://scenes/gui.gd" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://tkydsrqa7jt8" path="res://assets/3d/journal.blend" id="3_qhqgy"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g2els"]
 animation = &"Idle"
