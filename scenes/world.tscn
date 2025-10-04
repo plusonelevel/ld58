@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bnrkuyntlrd4g"]
+[gd_scene load_steps=34 format=3 uid="uid://bnrkuyntlrd4g"]
 
 [ext_resource type="Texture2D" uid="uid://dxgk1kob5rxob" path="res://assets/2d/gravel.png" id="1_k0juu"]
 [ext_resource type="Script" uid="uid://bi2kup3sjd7mx" path="res://scenes/game_manager.gd" id="1_q5onr"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://gyxnk5uxvwjv" path="res://assets/3d/rubble2.blend" id="9_q5onr"]
 [ext_resource type="PackedScene" uid="uid://dvsk32fx6l8tx" path="res://assets/3d/pipe.blend" id="10_jhx03"]
 [ext_resource type="PackedScene" uid="uid://boe4bpgol6wn8" path="res://assets/3d/pipe2.blend" id="11_o8fc1"]
+[ext_resource type="PackedScene" uid="uid://cdch3sn6mkmb1" path="res://assets/3d/container.blend" id="13_jhx03"]
+[ext_resource type="Shader" uid="uid://cmsm531dfofdu" path="res://water.gdshader" id="14_o8fc1"]
+[ext_resource type="PackedScene" uid="uid://bdxgr8d4flb5e" path="res://assets/3d/container2.blend" id="15_xo05s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -38,7 +41,7 @@ uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_4wyf3"]
 material = SubResource("StandardMaterial3D_qfnet")
-size = Vector3(100, 0.1, 100)
+size = Vector3(50, 0.1, 50)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_k0juu"]
 
@@ -65,6 +68,38 @@ height = 0.5
 radial_segments = 4
 rings = 1
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xo05s"]
+albedo_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
+albedo_texture = ExtResource("1_k0juu")
+uv1_scale = Vector3(20, 20, 20)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_xo05s"]
+material = SubResource("StandardMaterial3D_xo05s")
+size = Vector3(4, 0.1, 40)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xo05s"]
+noise_type = 2
+frequency = 0.0199
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dss4m"]
+noise = SubResource("FastNoiseLite_xo05s")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7t5mc"]
+render_priority = 0
+shader = ExtResource("14_o8fc1")
+shader_parameter/water_color = Color(0.13679552, 0.28128648, 0.30538943, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_dss4m")
+shader_parameter/wave_speed = 0.20000000624012
+shader_parameter/wave_noise = 0.10000000149012
+shader_parameter/wave_strength = Vector3(0, 1.5, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lakw3"]
+material = SubResource("ShaderMaterial_7t5mc")
+size = Vector2(20, 50)
+subdivide_width = 30
+subdivide_depth = 30
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_q5onr")
 
@@ -87,10 +122,10 @@ skeleton = NodePath("../..")
 shape = SubResource("WorldBoundaryShape3D_k0juu")
 
 [node name="panelhouse" parent="Ground" instance=ExtResource("2_71j4m")]
-transform = Transform3D(-0.6794284, 0, -0.7337419, 0, 1, 0, 0.7337419, 0, -0.6794284, -26.243174, 0.050001908, -27.826244)
+transform = Transform3D(-0.6794284, 0, -0.7337419, 0, 1, 0, 0.7337419, 0, -0.6794284, -16.308254, 0.050001908, -14.586796)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(-0.67942834, 0, -0.7337419, 0, 1, 0, 0.7337419, 0, -0.67942834, -26.243174, 3.6312444, -27.826244)
+transform = Transform3D(-0.67942834, 0, -0.7337419, 0, 1, 0, 0.7337419, 0, -0.67942834, -16.308254, 3.6312444, -14.586796)
 shape = SubResource("BoxShape3D_k0juu")
 
 [node name="House" type="StaticBody3D" parent="."]
@@ -133,19 +168,19 @@ scale_amount_max = 4.0
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="dead_tree" parent="Environment" instance=ExtResource("5_qfnet")]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -17.906622, -0.037419014, -28.86085)
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -12.033729, -0.03742092, -6.120056)
 
 [node name="dead_tree5" parent="Environment" instance=ExtResource("5_qfnet")]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -11.503966, -0.037419014, -10.440416)
 
 [node name="dead_tree2" parent="Environment" instance=ExtResource("6_i7141")]
-transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -25.293571, -0.037419967, -12.740424)
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -16.738638, -0.037421875, -2.9696102)
 
 [node name="dead_tree3" parent="Environment" instance=ExtResource("5_qfnet")]
 transform = Transform3D(-0.71712077, 0, 1.0843143, 0, 1.3, 0, -1.0843143, 0, -0.71712077, -1.5008678, -0.037419014, -6.154913)
 
 [node name="dead_tree4" parent="Environment" instance=ExtResource("6_i7141")]
-transform = Transform3D(-0.9929364, 0, 1.5013584, 0, 1.8, 0, -1.5013584, 0, -0.9929364, -14.206108, -0.037419967, -17.993217)
+transform = Transform3D(-0.9929364, 0, 1.5013584, 0, 1.8, 0, -1.5013584, 0, -0.9929364, -14.036243, -0.037419967, 0.2591095)
 
 [node name="dead_tree6" parent="Environment" instance=ExtResource("5_qfnet")]
 transform = Transform3D(1.4993075, 0, -0.045572247, 0, 1.5, 0, 0.045572247, 0, 1.4993075, 14.938354, -0.037419014, 5.293191)
@@ -219,7 +254,28 @@ transform = Transform3D(0.5129073, -0.12393054, -0.8494513, 0.116793625, 0.99039
 [node name="pipe" parent="Environment" instance=ExtResource("10_jhx03")]
 transform = Transform3D(0.91765064, 0.39738816, 0, -0.39738816, 0.91765064, 0, 0, 0, 1, 11.708039, 0.0066457987, 0.37428296)
 
-[node name="pipe2" parent="." instance=ExtResource("11_o8fc1")]
+[node name="pipe2" parent="Environment" instance=ExtResource("11_o8fc1")]
 transform = Transform3D(0.7391846, 0.65020883, -0.17559804, -1.8626451e-09, 0.26072353, 0.9654135, 0.6735029, -0.71361876, 0.19272278, 14.582324, 0.45862472, 2.8439236)
+
+[node name="container" parent="Environment" instance=ExtResource("13_jhx03")]
+transform = Transform3D(0.99899423, 0, -0.044839993, 0, 1, 0, 0.044839993, 0, 0.99899423, -23.630817, 0.016639233, 7.4972963)
+
+[node name="container2" parent="Environment" instance=ExtResource("13_jhx03")]
+transform = Transform3D(-0.99948156, 8.737745e-08, 0.032195695, -8.742278e-08, -1, 0, 0.032195695, -2.814636e-09, 0.99948156, -23.11193, 1.9875615, 3.6576548)
+
+[node name="container3" parent="Environment" instance=ExtResource("15_xo05s")]
+transform = Transform3D(-0.85943323, 0, 0.5112481, 0, 1, 0, -0.5112481, 0, -0.85943323, -23.348467, 2.0767407, 5.44247)
+
+[node name="Road" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.9995737, 0, 0.029195208, 0, 1, 0, -0.029195208, 0, 0.9995737, -8.050873, 0, -4.631008)
+mesh = SubResource("BoxMesh_xo05s")
+
+[node name="Road2" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.25423056, 0, 0.96714365, 0, 1, 0, -0.96714365, 0, 0.25423056, 10.732367, 0, 18.66439)
+mesh = SubResource("BoxMesh_xo05s")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7023021, 0.0822903, 0.70710677, -0.11637606, 0.99320513, 0, -0.70230216, -0.0822903, 0.70710677, -19.911852, 0.40993, 25.870012)
+mesh = SubResource("PlaneMesh_lakw3")
 
 [connection signal="mouse_entered" from="Dude" to="." method="_on_dude_mouse_entered"]
