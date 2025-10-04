@@ -19,7 +19,7 @@ height = 1.0
 height = 1.0
 radius = 2.0
 
-[node name="Dude" type="AnimatableBody3D"]
+[node name="Npc" type="AnimatableBody3D"]
 transform = Transform3D(-0.9387339, 0, 0.34464285, 0, 1, 0, -0.34464285, 0, -0.9387339, 0, 0, 0)
 script = ExtResource("1_abqhh")
 
