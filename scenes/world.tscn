@@ -1,12 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnrkuyntlrd4g"]
+[gd_scene load_steps=20 format=3 uid="uid://bnrkuyntlrd4g"]
 
-[ext_resource type="Texture2D" uid="uid://p00qq348po84" path="res://icon.svg" id="1_nnsk1"]
+[ext_resource type="Texture2D" uid="uid://dxgk1kob5rxob" path="res://assets/2d/gravel.png" id="1_k0juu"]
 [ext_resource type="PackedScene" uid="uid://1npejj82gb3u" path="res://scenes/npc.tscn" id="2_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://bv3spkmlwfjag" path="res://assets/3d/panelhouse.blend" id="2_71j4m"]
 [ext_resource type="PackedScene" uid="uid://ljkmuiuyun8n" path="res://scenes/player.tscn" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://b5evmbirxilyj" path="res://assets/3d/dead_tree.blend" id="5_qfnet"]
+[ext_resource type="PackedScene" uid="uid://c8lfsoo23776h" path="res://assets/3d/dead_tree2.blend" id="6_i7141"]
+[ext_resource type="PackedScene" uid="uid://bjunxtenlf5go" path="res://assets/3d/bus.blend" id="7_i7141"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+energy_multiplier = 0.2
 
 [sub_resource type="Sky" id="Sky_rwgxs"]
 sky_material = SubResource("ProceduralSkyMaterial_nnsk1")
@@ -16,16 +21,24 @@ background_mode = 2
 sky = SubResource("Sky_rwgxs")
 tonemap_mode = 2
 glow_enabled = true
+glow_bloom = 0.1
+glow_blend_mode = 1
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
+volumetric_fog_albedo = Color(0.8385496, 0.9239985, 0.9716901, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwgxs"]
-albedo_texture = ExtResource("1_nnsk1")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfnet"]
+albedo_texture = ExtResource("1_k0juu")
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_4wyf3"]
-size = Vector3(20, 0.1, 20)
+material = SubResource("StandardMaterial3D_qfnet")
+size = Vector3(100, 0.1, 100)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nnsk1"]
-size = Vector3(20, 0.1, 20)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_k0juu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k0juu"]
+size = Vector3(12.670349, 7.9529114, 4.256592)
 
 [sub_resource type="BoxMesh" id="BoxMesh_nnsk1"]
 size = Vector3(4, 2, 3)
@@ -36,6 +49,17 @@ size = Vector3(4.5, 1, 3.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rwgxs"]
 size = Vector3(4.6208496, 3, 3.5544434)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0juu"]
+transparency = 1
+albedo_color = Color(0.9408875, 0.9777315, 0.98421377, 0.25490198)
+
+[sub_resource type="SphereMesh" id="SphereMesh_71j4m"]
+material = SubResource("StandardMaterial3D_k0juu")
+radius = 0.001
+height = 0.5
+radial_segments = 4
+rings = 1
+
 [node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -43,18 +67,25 @@ environment = SubResource("Environment_4wyf3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.8309157, 0.91624695, 0.9544005, 1)
 shadow_enabled = true
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-material_override = SubResource("StandardMaterial3D_rwgxs")
 mesh = SubResource("BoxMesh_4wyf3")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-shape = SubResource("BoxShape3D_nnsk1")
+shape = SubResource("WorldBoundaryShape3D_k0juu")
+
+[node name="panelhouse" parent="Ground" instance=ExtResource("2_71j4m")]
+transform = Transform3D(-0.6794284, 0, -0.7337419, 0, 1, 0, 0.7337419, 0, -0.6794284, -26.243174, 0.050001908, -27.826244)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(-0.67942834, 0, -0.7337419, 0, 1, 0, 0.7337419, 0, -0.67942834, -26.243174, 3.6312444, -27.826244)
+shape = SubResource("BoxShape3D_k0juu")
 
 [node name="House" type="StaticBody3D" parent="."]
 transform = Transform3D(0.9259563, 0, -0.3776307, 0, 1, 0, 0.3776307, 0, 0.9259563, 3.9749699, 0, -5.7333736)
@@ -75,3 +106,46 @@ shape = SubResource("BoxShape3D_rwgxs")
 transform = Transform3D(-0.9387339, 0, 0.34464285, 0, 1, 0, -0.34464285, 0, -0.9387339, 3.6320148, 0, -2.8152778)
 
 [node name="Player" parent="." instance=ExtResource("2_rwgxs")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.473177, 4.868561, -9.328613)
+light_color = Color(0.6338211, 0.7262985, 0.62914777, 1)
+light_energy = 5.0
+omni_range = 6.287313
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9616723, 0)
+amount = 10000
+lifetime = 20.0
+randomness = 0.1
+mesh = SubResource("SphereMesh_71j4m")
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 15.0
+linear_accel_min = 8.0
+linear_accel_max = 15.0
+scale_amount_max = 4.0
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="dead_tree" parent="Environment" instance=ExtResource("5_qfnet")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -17.906622, -0.037419014, -28.86085)
+
+[node name="dead_tree5" parent="Environment" instance=ExtResource("5_qfnet")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -11.503966, -0.037419014, -10.440416)
+
+[node name="dead_tree2" parent="Environment" instance=ExtResource("6_i7141")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -25.293571, -0.037419967, -12.740424)
+
+[node name="dead_tree3" parent="Environment" instance=ExtResource("5_qfnet")]
+transform = Transform3D(-0.71712077, 0, 1.0843143, 0, 1.3, 0, -1.0843143, 0, -0.71712077, -1.5008678, -0.037419014, -6.154913)
+
+[node name="dead_tree4" parent="Environment" instance=ExtResource("6_i7141")]
+transform = Transform3D(-0.9929364, 0, 1.5013584, 0, 1.8, 0, -1.5013584, 0, -0.9929364, -14.206108, -0.037419967, -17.993217)
+
+[node name="bus" parent="." instance=ExtResource("7_i7141")]
+transform = Transform3D(0.3477867, 0, -0.9375737, 0, 1, 0, 0.9375737, 0, 0.3477867, 12.661259, -0.049999237, 1.7316246)
