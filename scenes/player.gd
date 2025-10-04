@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var camera = $CameraTarget/Camera3D
 @onready var camera_target = $CameraTarget
+@export var camera_smoothness = 0.1
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -28,6 +29,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-func _process(delta: float) -> void:
-	if (camera.position != camera_target.global_position):
-		camera.position = 	lerp(camera.position, camera_target.global_position, 0.05)
+	var camera_offset: Vector3 = abs(camera.position - camera_target.global_position)
+	if not camera_offset.is_zero_approx():
+		camera.position = 	lerp(camera.position, camera_target.global_position, camera_smoothness)
