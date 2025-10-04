@@ -2,22 +2,42 @@
 
 [ext_resource type="Script" uid="uid://3tonjbnd2mic" path="res://scenes/dialog_bubble.gd" id="1_8iv74"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0s0y4"]
-size = Vector2(128, 56)
+[sub_resource type="ViewportTexture" id="ViewportTexture_8iv74"]
+viewport_path = NodePath("SubViewport")
 
 [node name="DialogBubble" type="Node3D"]
 script = ExtResource("1_8iv74")
+lines = Array[String](["Did you hit ^Lucy^ or not?", "Oh hi ^Mark^!"])
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.839391, 0.8511423, 0.5558929)
 billboard = 1
-shaded = true
 double_sided = false
-texture = SubResource("PlaceholderTexture2D_0s0y4")
+texture = SubResource("ViewportTexture_8iv74")
 
 [node name="Label3D" type="Label3D" parent="Sprite3D"]
+visible = false
 billboard = 1
 shaded = true
 double_sided = false
 render_priority = 1
-text = "HELLO THERE!"
+text = "HELLO THERE! HELLO THERE!"
+outline_size = 10
+autowrap_mode = 3
+width = 318.6
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(128, 56)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Oh hi [color=red]Mark[/color]."
