@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjg0v55jpag5w"
-path="res://.godot/imported/NPC1_animated.blend-83aa953406b77577f939d4bca4def618.scn"
+uid="uid://ciodqj8o7s3q8"
+path="res://.godot/imported/boulder.blend-aeafbb6223bebad529d9571a5d12c57f.scn"
 
 [deps]
 
-source_file="res://assets/3d/NPC1_animated.blend"
-dest_files=["res://.godot/imported/NPC1_animated.blend-83aa953406b77577f939d4bca4def618.scn"]
+source_file="res://assets/3d/boulder.blend"
+dest_files=["res://.godot/imported/boulder.blend-aeafbb6223bebad529d9571a5d12c57f.scn"]
 
 [params]
 
@@ -17,7 +17,7 @@ nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
-nodes/root_scale=0.4
+nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
