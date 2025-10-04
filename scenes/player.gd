@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 @onready var camera = $CameraTarget/Camera3D
 @onready var camera_target = $CameraTarget

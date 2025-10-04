@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2t3nyue5x0kc"]
+
+[ext_resource type="Script" uid="uid://3tonjbnd2mic" path="res://scenes/dialog_bubble.gd" id="1_8iv74"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0s0y4"]
+size = Vector2(128, 56)
+
+[node name="DialogBubble" type="Node3D"]
+script = ExtResource("1_8iv74")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.839391, 0.8511423, 0.5558929)
+billboard = 1
+shaded = true
+double_sided = false
+texture = SubResource("PlaceholderTexture2D_0s0y4")
+
+[node name="Label3D" type="Label3D" parent="Sprite3D"]
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = 1
+text = "HELLO THERE!"
