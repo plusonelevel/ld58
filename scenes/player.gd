@@ -26,8 +26,8 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = move_toward(velocity.x, direction.x * SPEED, SPEED / 20.0)
-		velocity.z = move_toward(velocity.z, direction.z * SPEED, SPEED / 20.0)
+		velocity.x = move_toward(velocity.x, direction.x * SPEED, SPEED / 10.0)
+		velocity.z = move_toward(velocity.z, direction.z * SPEED, SPEED / 10.0)
 		
 		# Handle rotation
 		char_model.look_at(global_position + direction)
