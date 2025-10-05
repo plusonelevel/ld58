@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://gklqfsc2o3gq"]
+
+[ext_resource type="PackedScene" uid="uid://dvsk32fx6l8tx" path="res://assets/3d/pipe.blend" id="1_se78b"]
+[ext_resource type="PackedScene" uid="uid://bdxgr8d4flb5e" path="res://assets/3d/container2.blend" id="2_3bgk5"]
+[ext_resource type="PackedScene" uid="uid://vif03qyunntj" path="res://assets/3d/tarp.blend" id="3_f74lx"]
+[ext_resource type="PackedScene" uid="uid://b7jiunije2ycd" path="res://assets/3d/lantern.blend" id="4_ptc3g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2lf6f"]
+size = Vector3(3.698059, 2.4161377, 2.265808)
+
+[node name="House" type="StaticBody3D"]
+
+[node name="pipe3" parent="." instance=ExtResource("1_se78b")]
+transform = Transform3D(0.7666276, -0.10500127, 0.6334484, 0.13569826, 0.99075025, 0, -0.62758917, 0.08595785, 0.77378494, 2.8559053, 0.03908205, -3.8270009)
+
+[node name="pipe4" parent="." instance=ExtResource("1_se78b")]
+transform = Transform3D(0.9225359, -0.06299495, -0.38073522, -0.08956487, -0.9945988, -0.052457165, -0.37537414, 0.082494214, -0.923195, 4.921873, 1.5747885, -3.0128698)
+
+[node name="container6" parent="." instance=ExtResource("2_3bgk5")]
+transform = Transform3D(-0.31641066, 0, -0.94862217, 0, 1, 0, 0.94862217, 0, -0.31641066, 4.6550446, -0.15697718, -5.8293343)
+
+[node name="tarp" parent="." instance=ExtResource("3_f74lx")]
+transform = Transform3D(-0.1550318, 0.030010354, -0.8430538, -0.048846643, 0.99429965, 0.050808262, 0.5201851, 0.10231121, -0.24648595, 4.0509048, 1.6854444, -4.078009)
+
+[node name="lantern" parent="." instance=ExtResource("4_ptc3g")]
+transform = Transform3D(0.96492493, -0.14040533, 0.22182485, 0, 0.84496325, 0.5348244, -0.26252604, -0.51606536, 0.8153261, 2.8196557, 0.9561471, -3.5278955)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lantern"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1354621, 0)
+light_color = Color(0.88706577, 0.61477417, 0.52300936, 1)
+omni_range = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.945006, 0, -0.32705298, 0, 1, 0, 0.32705298, 0, 0.945006, 4.6119714, 0.70806885, -5.765086)
+shape = SubResource("BoxShape3D_2lf6f")
