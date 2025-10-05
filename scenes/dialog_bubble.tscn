@@ -18,6 +18,7 @@ lines = Array[String](["Did you hit ^Lucy^ or not?", "Oh hi ^Mark^!"])
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.839391, 0.8511423, 0.5558929)
 billboard = 1
 double_sided = false
+no_depth_test = true
 texture = SubResource("ViewportTexture_8iv74")
 
 [node name="SubViewport" type="SubViewport" parent="Sprite3D"]
@@ -34,7 +35,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "Oh hi [color=red]Mark[/color]."
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
