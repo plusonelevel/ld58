@@ -2,6 +2,8 @@ extends AnimatableBody3D
 
 @onready var bubble: DialogBubble = $DialogBubble
 
+var active = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,14 +14,16 @@ func _process(delta: float) -> void:
 	pass
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
+	if active and event.is_action_pressed("ui_accept"):
 		bubble.next_line()
 
 func on_char_entered() -> void:
-	bubble.fade_in()
+	active = true
+	bubble.activate()
 	
 func on_char_exited() -> void:
-	bubble.fade_out()
+	bubble.deactivate()
+	active = false
 
 
 func _on_interactive_area_body_entered(body: Node3D) -> void:

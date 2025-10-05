@@ -10,7 +10,7 @@ var clue: String
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready() -> void:
 	$Sprite3D.transparency = 1.0
-	set_next_line()
+	_set_next_line()
 
 func _parse_text(sliced_text: Array[String]) -> String:
 	if not sliced_text.size() == 3:
@@ -32,13 +32,25 @@ func set_text(text: String) -> void:
 		
 	label.text = text
 
-func fade_in(tween = create_tween()) -> void:
+func activate() -> void:
+	show()
+	$CollisionShape3D.disabled = false
+	_fade_in()
+
+func deactivate() -> void:
+	$CollisionShape3D.disabled = true
+	var tween = create_tween()
+	_fade_out(tween)
+	tween.tween_callback(hide)
+
+
+func _fade_in(tween = create_tween()) -> void:
 	tween.tween_property($Sprite3D, "transparency", 0.0, 0.5)
-	
-func fade_out(tween = create_tween()) -> void:
+
+func _fade_out(tween = create_tween()) -> void:
 	tween.tween_property($Sprite3D, "transparency", 1.0, 0.5)
 
-func set_next_line(tween = create_tween()) -> void:
+func _set_next_line(tween = create_tween()) -> void:
 	tween.tween_callback(func ():
 		lines_idx += 1
 		set_text(lines[lines_idx])
@@ -47,6 +59,6 @@ func set_next_line(tween = create_tween()) -> void:
 func next_line() -> void:
 	if lines_idx < lines.size() - 1:
 		var tween = create_tween()
-		fade_out(tween)
-		set_next_line(tween)
-		fade_in(tween)
+		_fade_out(tween)
+		_set_next_line(tween)
+		_fade_in(tween)
