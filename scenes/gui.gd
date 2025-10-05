@@ -17,11 +17,12 @@ func _ready() -> void:
 	
 	book_orig_rot = book.rotation
 	book_target_rot = book.rotation
+	
+	Signals.clue_drag_finished.connect(_on_clue_drag_finished)
 
-func _on_drag_release(clue: String) -> void:
+func _on_clue_drag_finished(clue: String) -> void:
 	if is_in_book_area:
 		Inventory.add(clue)
-		Signals.clue_collected.emit()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

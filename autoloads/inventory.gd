@@ -10,9 +10,11 @@ func _init():
 func _ready() -> void:
 	pass
 
+
 func add(clue: String) -> void:
 	if not is_clue_known(clue):
 		inventory.append(clue)
+		Signals.clue_collected.emit()
 
 
 func is_clue_known(clue: String) -> bool:
