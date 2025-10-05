@@ -30,3 +30,11 @@ func _on_interactive_area_body_entered(body: Node3D) -> void:
 func _on_interactive_area_body_exited(body: Node3D) -> void:
 	if body is Player:
 		on_char_exited()
+
+
+func _on_mouse_entered() -> void:
+	CursorManager.dialogue_enabled.emit()
+
+
+func _on_mouse_exited() -> void:
+	CursorManager.dialogue_disabled.emit()
