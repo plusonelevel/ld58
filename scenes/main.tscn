@@ -1,12 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://b38wx223fpw4j"]
+[gd_scene load_steps=10 format=3 uid="uid://b38wx223fpw4j"]
 
 [ext_resource type="Script" uid="uid://ccc0rnt6kojnm" path="res://scenes/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bnrkuyntlrd4g" path="res://scenes/world.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://csij6y8uv2kgd" path="res://scenes/drag_n_drop.gd" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://2m1abvmpdea8" path="res://scenes/journal_overlay.gd" id="4_jyhfs"]
+[ext_resource type="FontFile" uid="uid://dfi0631ll270h" path="res://assets/2d/GrenzeGotisch-VariableFont_wght.ttf" id="4_tipki"]
 [ext_resource type="Texture2D" uid="uid://ijtlmwr8yhff" path="res://assets/2d/cross.png" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://bqdscr50jevnw" path="res://assets/2d/cross_pressed.png" id="6_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://cuoyrvg4mtjgq" path="res://assets/2d/cross_hover.png" id="6_tefeu"]
+
+[sub_resource type="Theme" id="Theme_85g3d"]
+Label/colors/font_color = Color(0.33328643, 0.15931082, 1.2032687e-07, 1)
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("4_tipki")
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0wfyh")
@@ -43,6 +49,7 @@ offset_right = 397.0
 offset_bottom = 285.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_85g3d")
 script = ExtResource("4_jyhfs")
 
 [node name="Close" type="TextureButton" parent="JournalOverlay"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=4 uid="uid://ljkmuiuyun8n"]
+[gd_scene load_steps=34 format=4 uid="uid://ljkmuiuyun8n"]
 
 [ext_resource type="Script" uid="uid://dun6ixfr4iqdr" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://b63fcxorqkjmc" path="res://scenes/gui.gd" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://tkydsrqa7jt8" path="res://assets/3d/journal.blend" id="2_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://b763ju8ni812s" path="res://scenes/book.tscn" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cduqot0l6f5r8" path="res://assets/3d/journal2.blend" id="4_dqkch"]
 
@@ -1526,6 +1527,14 @@ skin = SubResource("Skin_vydg7")
 [node name="Trousers" type="MeshInstance3D" parent="player_animated/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_xonxn")
 skin = SubResource("Skin_vydg7")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="player_animated/Armature/Skeleton3D"]
+transform = Transform3D(0.6880318, 0.0784557, -0.72142607, -0.5583241, 0.6922761, -0.45719424, 0.46355692, 0.7173541, 0.52011234, 54.455025, 55.314194, -147.19086)
+bone_name = "mixamorig_LeftHand"
+bone_idx = 10
+
+[node name="journal" parent="player_animated/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("2_qlg0r")]
+transform = Transform3D(32.914463, -83.43044, 71.979164, -98.60906, 11.220868, 58.09773, -49.17207, -78.34828, -68.32755, 10.126781, 32.84182, 18.84377)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="player_animated"]
 libraries = {
