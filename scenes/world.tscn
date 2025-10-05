@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://bnrkuyntlrd4g"]
+[gd_scene load_steps=113 format=4 uid="uid://bnrkuyntlrd4g"]
 
 [ext_resource type="Script" uid="uid://bi2kup3sjd7mx" path="res://autoloads/cursor_manager.gd" id="1_q5onr"]
 [ext_resource type="PackedScene" uid="uid://1npejj82gb3u" path="res://scenes/npc.tscn" id="2_4wyf3"]
@@ -42,8 +42,8 @@
 [ext_resource type="PackedScene" uid="uid://vif03qyunntj" path="res://assets/3d/tarp.blend" id="34_8u370"]
 [ext_resource type="PackedScene" uid="uid://vwa1w5b1n8y4" path="res://scenes/wall.tscn" id="35_f17e3"]
 [ext_resource type="PackedScene" uid="uid://83ap5aydhpx7" path="res://assets/3d/pamphlets.blend" id="37_rga7q"]
+[ext_resource type="PackedScene" uid="uid://bbcp0xk0nxaxt" path="res://assets/3d/priest_animated.blend" id="38_3l05q"]
 [ext_resource type="PackedScene" uid="uid://bhjatmhd7sai" path="res://scenes/worker_animated_3.tscn" id="38_ggc52"]
-[ext_resource type="PackedScene" uid="uid://cj1jl83hnsnj4" path="res://scenes/priest_animated.tscn" id="39_l8ah6"]
 [ext_resource type="PackedScene" uid="uid://bgs7riru8i0qb" path="res://scenes/sleeper_animated.tscn" id="40_e75v4"]
 [ext_resource type="AudioStream" uid="uid://b57ebbhvwyxph" path="res://assets/sfx/seagull-beach-sound-effect.mp3" id="43_6oujy"]
 [ext_resource type="AudioStream" uid="uid://lxbndtnwta70" path="res://assets/sfx/ytmp3free.cc_seawaves-sound-effect-youtubemp3free.org.mp3" id="44_hi6a0"]
@@ -1538,6 +1538,13 @@ skeleton = NodePath("")
 
 [node name="NPCs" type="Node3D" parent="."]
 
+[node name="Priest" parent="NPCs" instance=ExtResource("2_4wyf3")]
+transform = Transform3D(-0.5004231, 0, 0.865781, 0, 1, 0, -0.865781, 0, -0.5004231, 12.716636, 0.3551851, 13.958622)
+
+[node name="Model" parent="NPCs/Priest" instance=ExtResource("38_3l05q")]
+
+[node name="DialogBubble" parent="NPCs/Priest" instance=ExtResource("5_eo1xk")]
+
 [node name="Guard" parent="NPCs" instance=ExtResource("2_4wyf3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.967966, 0.0037230253, 16.317467)
 
@@ -1567,11 +1574,9 @@ transform = Transform3D(-0.0451875, 0, 0.34707072, 0, 0.34999996, 0, -0.34707072
 [node name="worker_animated3" parent="NPCs" instance=ExtResource("14_817gm")]
 transform = Transform3D(0.30715942, 0, -0.16778886, 0, 0.34999996, 0, 0.16778886, 0, 0.30715942, 0.27739418, 0.041059732, 23.356913)
 
-[node name="priest_animated" parent="NPCs" instance=ExtResource("39_l8ah6")]
-transform = Transform3D(-0.5004231, 0, 0.865781, 0, 1, 0, -0.865781, 0, -0.5004231, 12.716636, 0.3551851, 13.958622)
-
 [node name="sleeper_animated" parent="NPCs" instance=ExtResource("40_e75v4")]
 transform = Transform3D(-0.9771755, 0, 0.21243349, 0, 1, 0, -0.21243349, 0, -0.9771755, 8.587191, 0.19699351, 5.94014)
+script = null
 
 [node name="SFX" type="Node3D" parent="."]
 
