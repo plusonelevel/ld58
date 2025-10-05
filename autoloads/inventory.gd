@@ -11,7 +11,8 @@ func _ready() -> void:
 	pass
 
 func add(clue: String) -> void:
-	inventory.append(clue)
+	if not is_clue_known(clue):
+		inventory.append(clue)
 
 
 func is_clue_known(clue: String) -> bool:
