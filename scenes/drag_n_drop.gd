@@ -3,7 +3,7 @@ extends Node3D
 @onready var dragged_clue_label := $DraggedClue
 @export var camera : Camera3D
 
-var is_dragging = false
+var dragged_value: Variant
 
 const LAYERS = {
 	"world": 0b00000001,
@@ -20,7 +20,7 @@ func _ready() -> void:
 
 
 func _process(_delta) -> void:
-	if is_dragging:
+	if dragged_value:
 		handle_drag()
 
 
@@ -29,7 +29,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				handle_click()
-			elif is_dragging:
+			elif dragged_value:
 				stop_drag()
 
 
@@ -44,7 +44,7 @@ func handle_click() -> void:
 func start_drag(clue: String) -> void:
 	dragged_clue_label.text = clue
 	dragged_clue_label.show()
-	is_dragging = true
+	dragged_value = clue
 
 
 func handle_drag():
@@ -75,5 +75,6 @@ func _get_click_collider():
 
 
 func stop_drag():
-	is_dragging = false
+	Signals.clue_drag_finished.emit(dragged_value)
 	dragged_clue_label.hide()
+	dragged_value = null
