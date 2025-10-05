@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://1npejj82gb3u" path="res://scenes/npc.tscn" id="2_4wyf3"]
 [ext_resource type="Shader" uid="uid://b33de4cp8jjuh" path="res://scenes/ground.tres" id="2_7iits"]
 [ext_resource type="PackedScene" uid="uid://ljkmuiuyun8n" path="res://scenes/player.tscn" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://bjg0v55jpag5w" path="res://assets/3d/NPC1_animated.blend" id="3_6oujy"]
+[ext_resource type="PackedScene" uid="uid://bb1ke0xjaepjf" path="res://assets/3d/chair.blend" id="3_hi6a0"]
+[ext_resource type="PackedScene" uid="uid://d2t3nyue5x0kc" path="res://scenes/dialog_bubble.tscn" id="5_eo1xk"]
 [ext_resource type="PackedScene" uid="uid://b5evmbirxilyj" path="res://assets/3d/dead_tree.blend" id="5_qfnet"]
 [ext_resource type="PackedScene" uid="uid://c8lfsoo23776h" path="res://assets/3d/dead_tree2.blend" id="6_i7141"]
 [ext_resource type="PackedScene" uid="uid://li0621mwm6mf" path="res://assets/3d/dead_bush.blend" id="7_lakw3"]
@@ -1532,8 +1535,28 @@ skeleton = NodePath("")
 
 [node name="NPCs" type="Node3D" parent="."]
 
-[node name="worker_animated" parent="NPCs" instance=ExtResource("38_ggc52")]
-transform = Transform3D(-0.31928208, 0, -0.14338392, 0, 0.35, 0, 0.14338392, 0, -0.31928208, -12.967966, 0.0037230253, 16.317467)
+[node name="Guard" parent="NPCs" instance=ExtResource("2_4wyf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.967966, 0.0037230253, 16.317467)
+
+[node name="Model" parent="NPCs/Guard" instance=ExtResource("38_ggc52")]
+transform = Transform3D(-0.31928208, 0, -0.14338392, 0, 0.35, 0, 0.14338392, 0, -0.31928208, 0, 0, 0)
+
+[node name="DialogBubble" parent="NPCs/Guard" instance=ExtResource("5_eo1xk")]
+transform = Transform3D(0.980809, 0, 0.19497031, 0, 1, 0, -0.19497031, 0, 0.980809, 0.15158367, -2.3841858e-07, -0.7701225)
+lines = Array[String](["Test", "Test Test"])
+
+[node name="Dude" parent="NPCs" instance=ExtResource("2_4wyf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7688261, 0.04984218, 6.11475)
+
+[node name="chair" parent="NPCs/Dude" instance=ExtResource("3_hi6a0")]
+transform = Transform3D(0.58070296, 0, 0.8141155, 0, 1, 0, -0.8141155, 0, 0.58070296, -0.09316504, -5.9604645e-08, -0.059559345)
+
+[node name="Model" parent="NPCs/Dude" instance=ExtResource("3_6oujy")]
+transform = Transform3D(0.58070296, 0, 0.8141155, 0, 1, 0, -0.8141155, 0, 0.58070296, 0, 0, 0)
+
+[node name="DialogBubble" parent="NPCs/Dude" instance=ExtResource("5_eo1xk")]
+transform = Transform3D(-0.98628557, 0, -0.1650477, 0, 1, 0, 0.1650477, 0, -0.98628557, 0, 0, 0)
+lines = Array[String](["Hello there.", "Oh it's you - hi ^Mark^!", "Did you hit ^Lisa^ or not?"])
 
 [node name="worker_animated2" parent="NPCs" instance=ExtResource("13_x2olw")]
 transform = Transform3D(-0.0451875, 0, 0.34707072, 0, 0.34999996, 0, -0.34707072, 0, -0.0451875, 0.8850509, 0.041059613, 22.719418)
@@ -1546,8 +1569,5 @@ transform = Transform3D(-0.5004231, 0, 0.865781, 0, 1, 0, -0.865781, 0, -0.50042
 
 [node name="sleeper_animated" parent="NPCs" instance=ExtResource("40_e75v4")]
 transform = Transform3D(-0.9771755, 0, 0.21243349, 0, 1, 0, -0.21243349, 0, -0.9771755, 8.587191, 0.19699351, 5.94014)
-
-[node name="Dude" parent="NPCs" instance=ExtResource("2_4wyf3")]
-transform = Transform3D(-0.99272585, 0, -0.12039679, 0, 1, 0, 0.12039679, 0, -0.99272585, 1.5574886, 0.04984218, 5.8805804)
 
 [connection signal="mouse_entered" from="NPCs/Dude" to="." method="_on_dude_mouse_entered"]

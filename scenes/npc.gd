@@ -1,13 +1,15 @@
 extends AnimatableBody3D
 
 @onready var bubble: DialogBubble = $DialogBubble
+@onready var anim_tree := $AnimationTree
 
 var active = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	var player: AnimationPlayer = $Model/AnimationPlayer
+	player.play("Sitting")
+	$Dummy.hide()
 	
 func _input(event: InputEvent) -> void:
 	if active and event.is_action_pressed("ui_accept"):
