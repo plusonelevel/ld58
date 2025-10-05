@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2t3nyue5x0kc"]
+[gd_scene load_steps=4 format=3 uid="uid://d2t3nyue5x0kc"]
 
 [ext_resource type="Script" uid="uid://3tonjbnd2mic" path="res://scenes/dialog_bubble.gd" id="1_8iv74"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8iv74"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("Sprite3D/SubViewport")
 
-[node name="DialogBubble" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8iv74"]
+size = Vector3(1.314209, 0.49035645, 1.2128906)
+
+[node name="DialogBubble" type="StaticBody3D"]
+collision_layer = 64
+collision_mask = 0
 script = ExtResource("1_8iv74")
 lines = Array[String](["Did you hit ^Lucy^ or not?", "Oh hi ^Mark^!"])
 
@@ -15,23 +20,12 @@ billboard = 1
 double_sided = false
 texture = SubResource("ViewportTexture_8iv74")
 
-[node name="Label3D" type="Label3D" parent="Sprite3D"]
-visible = false
-billboard = 1
-shaded = true
-double_sided = false
-render_priority = 1
-text = "HELLO THERE! HELLO THERE!"
-outline_size = 10
-autowrap_mode = 3
-width = 318.6
-
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
 disable_3d = true
 transparent_bg = true
 size = Vector2i(128, 56)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite3D/SubViewport"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,3 +35,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
 text = "Oh hi [color=red]Mark[/color]."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77496314, 0.8766849, 0.59524804)
+shape = SubResource("BoxShape3D_8iv74")
+disabled = true
