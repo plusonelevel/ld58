@@ -37,26 +37,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -356.0
+offset_left = -367.0
 offset_top = -261.0
-offset_right = 386.0
+offset_right = 397.0
 offset_bottom = 285.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_jyhfs")
 
-[node name="Panel" type="Panel" parent="JournalOverlay"]
-modulate = Color(3.3529627, 3.3529627, 2.5168862, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Close" type="TextureButton" parent="JournalOverlay/Panel"]
-layout_mode = 1
-anchors_preset = 1
+[node name="Close" type="TextureButton" parent="JournalOverlay"]
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -61.0
@@ -66,11 +56,11 @@ offset_bottom = 61.0
 grow_horizontal = 0
 texture_normal = SubResource("PlaceholderTexture2D_jyhfs")
 
-[node name="Clues" type="VBoxContainer" parent="JournalOverlay/Panel"]
+[node name="Clues" type="VBoxContainer" parent="JournalOverlay"]
 layout_mode = 0
 offset_left = 33.0
 offset_top = 31.0
 offset_right = 73.0
 offset_bottom = 71.0
 
-[connection signal="pressed" from="JournalOverlay/Panel/Close" to="JournalOverlay" method="_on_close_pressed"]
+[connection signal="pressed" from="JournalOverlay/Close" to="JournalOverlay" method="_on_close_pressed"]

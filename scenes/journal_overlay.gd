@@ -1,7 +1,6 @@
 extends Control
 
-@onready var clues_container = $Panel/Clues
-@onready var journal_model =  $JournalModel
+@onready var clues_container = $Clues
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

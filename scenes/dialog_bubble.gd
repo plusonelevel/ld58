@@ -10,6 +10,8 @@ var clue: Variant
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready() -> void:
 	Signals.clue_collected.connect(_on_clue_collected)
+	Signals.journal_opened.connect(_on_journal_opened)
+	Signals.journal_closed.connect(_on_journal_closed)
 	
 	$Sprite3D.modulate.a = 0.0
 	_set_next_line()
@@ -68,3 +70,9 @@ func next_line() -> void:
 func _on_clue_collected():
 	# Re-parse current line
 	set_text(lines[lines_idx])
+
+func _on_journal_opened():
+	hide()
+
+func _on_journal_closed():
+	show()
