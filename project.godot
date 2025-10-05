@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 InputListener="*res://autoloads/input_listener.gd"
 CursorManager="*res://autoloads/cursor_manager.gd"
+Signals="*res://autoloads/signals.gd"
 
 [file_customization]
 
@@ -75,6 +76,9 @@ jump={
 
 3d_physics/layer_1="World"
 3d_physics/layer_3="Player"
+3d_physics/layer_4="NPCs"
+3d_physics/layer_7="InteractiveText"
+3d_physics/layer_8="Ground"
 
 [physics]
 

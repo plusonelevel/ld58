@@ -1,8 +1,8 @@
 class_name DialogBubble
-extends Node3D
+extends StaticBody3D
 
 @export var lines: Array[String]
-@onready var label = $SubViewport/RichTextLabel
+@onready var label = $Sprite3D/SubViewport/RichTextLabel
 
 var lines_idx = -1
 var clue: String
