@@ -2,6 +2,9 @@ extends Node
 
 signal dialogue_enabled
 signal dialogue_disabled
+signal dialog_bubble_mouse_entered
+signal dialog_bubble_mouse_exited
+
 
 class CursorOptions:
 	var default: Resource
@@ -20,6 +23,16 @@ var cursor_dialogue = CursorOptions.new(
 	load("res://assets/2d/cursor_dialogue_Active.png")
 )
 
+var cursor_hand = CursorOptions.new(
+	load("res://assets/2d/cursor_hand.png"),
+	load("res://assets/2d/cursor_hand_active.png")
+)
+
+var cursor_hand_grab = CursorOptions.new(
+	load("res://assets/2d/cursor_hand_grab.png"),
+	load("res://assets/2d/cursor_hand_grab_active.png")
+)
+
 var cursor: CursorOptions
 
 var click_timer: Timer
@@ -34,6 +47,8 @@ func set_active():
 func _init():
 	dialogue_enabled.connect(_on_dialogue_enabled)
 	dialogue_disabled.connect(_on_dialogue_disabled)
+	dialog_bubble_mouse_entered.connect(_on_dialog_bubble_mouse_entered)
+	dialog_bubble_mouse_exited.connect(_on_dialog_bubble_mouse_exited)
 	
 
 func _ready():
@@ -61,5 +76,13 @@ func _on_dialogue_enabled() -> void:
 	set_default()
 
 func _on_dialogue_disabled() -> void:
+	cursor = cursor_default
+	set_default()
+	
+func _on_dialog_bubble_mouse_entered() -> void:
+	cursor = cursor_hand
+	set_default()
+	
+func _on_dialog_bubble_mouse_exited() -> void:
 	cursor = cursor_default
 	set_default()

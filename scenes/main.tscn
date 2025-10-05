@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b38wx223fpw4j"]
+[gd_scene load_steps=8 format=3 uid="uid://b38wx223fpw4j"]
 
 [ext_resource type="Script" uid="uid://ccc0rnt6kojnm" path="res://scenes/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bnrkuyntlrd4g" path="res://scenes/world.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://csij6y8uv2kgd" path="res://scenes/drag_n_drop.gd" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://2m1abvmpdea8" path="res://scenes/journal_overlay.gd" id="4_jyhfs"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jyhfs"]
-size = Vector2(48, 48)
+[ext_resource type="Texture2D" uid="uid://ijtlmwr8yhff" path="res://assets/2d/cross.png" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://bqdscr50jevnw" path="res://assets/2d/cross_pressed.png" id="6_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://cuoyrvg4mtjgq" path="res://assets/2d/cross_hover.png" id="6_tefeu"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0wfyh")
@@ -54,13 +54,15 @@ offset_top = 13.0
 offset_right = -13.0
 offset_bottom = 61.0
 grow_horizontal = 0
-texture_normal = SubResource("PlaceholderTexture2D_jyhfs")
+texture_normal = ExtResource("5_tbgi4")
+texture_pressed = ExtResource("6_o6xl0")
+texture_hover = ExtResource("6_tefeu")
 
 [node name="Clues" type="VBoxContainer" parent="JournalOverlay"]
 layout_mode = 0
-offset_left = 33.0
-offset_top = 31.0
-offset_right = 73.0
-offset_bottom = 71.0
+offset_left = 481.0
+offset_top = 73.0
+offset_right = 700.0
+offset_bottom = 380.0
 
 [connection signal="pressed" from="JournalOverlay/Close" to="JournalOverlay" method="_on_close_pressed"]
