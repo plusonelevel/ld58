@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://bnrkuyntlrd4g"]
+[gd_scene load_steps=39 format=4 uid="uid://bnrkuyntlrd4g"]
 
 [ext_resource type="Texture2D" uid="uid://dxgk1kob5rxob" path="res://assets/2d/gravel.png" id="1_k0juu"]
 [ext_resource type="Script" uid="uid://bi2kup3sjd7mx" path="res://autoloads/cursor_manager.gd" id="1_q5onr"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://gklqfsc2o3gq" path="res://scenes/house.tscn" id="17_pm21f"]
 [ext_resource type="PackedScene" uid="uid://buyjm7o5wx21l" path="res://scenes/fence.tscn" id="19_2lf6f"]
 [ext_resource type="PackedScene" uid="uid://ddwn500nxkhvs" path="res://scenes/fence_broken.tscn" id="20_7iits"]
+[ext_resource type="PackedScene" uid="uid://cr5apb8xwc5ga" path="res://assets/3d/construction.blend" id="21_7iits"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -206,7 +207,7 @@ scale_amount_max = 4.0
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -12.033729, -0.03742092, -6.120056)
 
 [node name="dead_tree5" parent="Environment/Trees" instance=ExtResource("5_qfnet")]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -11.503966, -0.037419014, -10.440416)
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -10.287805, -0.03741806, -8.203737)
 
 [node name="dead_tree2" parent="Environment/Trees" instance=ExtResource("6_i7141")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -16.738638, -0.037421875, -2.9696102)
@@ -399,5 +400,8 @@ transform = Transform3D(-0.29657495, 0, -0.9550096, 0, 1, 0, 0.9550096, 0, -0.29
 
 [node name="fence_broken2" parent="." instance=ExtResource("20_7iits")]
 transform = Transform3D(0.5307892, -0.84723556, -0.021324897, -0.07979654, -0.07501072, 0.9939849, -0.8437389, -0.52589476, -0.10742134, 3.0048528, 0.22839735, -9.688552)
+
+[node name="construction" parent="." instance=ExtResource("21_7iits")]
+transform = Transform3D(0.51584566, 0, 0.85668147, 0, 1, 0, -0.85668147, 0, 0.51584566, -12.40726, 0.16666698, -13.13501)
 
 [connection signal="mouse_entered" from="Dude" to="." method="_on_dude_mouse_entered"]
