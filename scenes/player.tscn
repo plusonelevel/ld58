@@ -1,8 +1,8 @@
-[gd_scene load_steps=33 format=4 uid="uid://ljkmuiuyun8n"]
+[gd_scene load_steps=32 format=4 uid="uid://ljkmuiuyun8n"]
 
 [ext_resource type="Script" uid="uid://dun6ixfr4iqdr" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://b63fcxorqkjmc" path="res://scenes/gui.gd" id="2_g2els"]
-[ext_resource type="PackedScene" uid="uid://tkydsrqa7jt8" path="res://assets/3d/journal.blend" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://b763ju8ni812s" path="res://scenes/book.tscn" id="3_qhqgy"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g2els"]
 animation = &"Idle"
@@ -1299,9 +1299,6 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2els"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_dqkch"]
-size = Vector3(0.1, 0.15, 0.02)
-
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 11
@@ -1557,14 +1554,8 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_g2els")
 
-[node name="Book" type="Node3D" parent="CameraTarget/Camera3D/GUI"]
+[node name="Book" parent="CameraTarget/Camera3D/GUI" instance=ExtResource("3_qhqgy")]
 transform = Transform3D(0.9848077, 0, 0.17364818, 0, 1, 0, -0.17364818, 0, 0.9848077, 0.263, -0.225, -0.257)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraTarget/Camera3D/GUI/Book"]
-mesh = SubResource("BoxMesh_dqkch")
-
-[node name="journal" parent="CameraTarget/Camera3D/GUI/Book/MeshInstance3D" instance=ExtResource("3_qhqgy")]
-transform = Transform3D(-0.4, 0, -6.039832e-08, 0, 0.4, 0, 6.039832e-08, 0, -0.4, 0, -0.075, 0)
 
 [connection signal="gui_input" from="CameraTarget/Camera3D/GUI/BookArea" to="CameraTarget/Camera3D/GUI" method="_on_book_area_gui_input"]
 [connection signal="mouse_entered" from="CameraTarget/Camera3D/GUI/BookArea" to="CameraTarget/Camera3D/GUI" method="_on_book_area_mouse_entered"]

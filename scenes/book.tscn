@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b763ju8ni812s"]
+
+[ext_resource type="PackedScene" uid="uid://tkydsrqa7jt8" path="res://assets/3d/journal.blend" id="1_ble1a"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dqkch"]
+size = Vector3(0.1, 0.15, 0.02)
+
+[node name="Book" type="Node3D"]
+transform = Transform3D(0.9848077, 0, 0.17364818, 0, 1, 0, -0.17364818, 0, 0.9848077, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_dqkch")
+
+[node name="journal" parent="MeshInstance3D" instance=ExtResource("1_ble1a")]
+transform = Transform3D(-0.4, 0, -6.039832e-08, 0, 0.4, 0, 6.039832e-08, 0, -0.4, 0, -0.075, 0)
