@@ -20,17 +20,6 @@ billboard = 1
 double_sided = false
 texture = SubResource("ViewportTexture_8iv74")
 
-[node name="Label3D" type="Label3D" parent="Sprite3D"]
-visible = false
-billboard = 1
-shaded = true
-double_sided = false
-render_priority = 1
-text = "HELLO THERE! HELLO THERE!"
-outline_size = 10
-autowrap_mode = 3
-width = 318.6
-
 [node name="SubViewport" type="SubViewport" parent="Sprite3D"]
 disable_3d = true
 transparent_bg = true
@@ -52,3 +41,4 @@ vertical_alignment = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77496314, 0.8766849, 0.59524804)
 shape = SubResource("BoxShape3D_8iv74")
+disabled = true

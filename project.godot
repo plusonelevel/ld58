@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 InputListener="*res://autoloads/input_listener.gd"
 CursorManager="*res://autoloads/cursor_manager.gd"
 Signals="*res://autoloads/signals.gd"
+Inventory="*res://autoloads/inventory.gd"
 
 [file_customization]
 
