@@ -4,12 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bdxgr8d4flb5e" path="res://assets/3d/container2.blend" id="2_3bgk5"]
 [ext_resource type="PackedScene" uid="uid://vif03qyunntj" path="res://assets/3d/tarp.blend" id="3_f74lx"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7voq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_se78b"]
 resource_name = "Lamp"
 cull_mode = 2
 albedo_color = Color(0, 0, 0, 1)
-metallic = 0.24090908
-roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rk7hg"]
 resource_name = "Window"
@@ -52,7 +50,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 204,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUgBRAFMAUABUAFEAUgBTAFUAVgBUAFAAVQBTAFcAVgBXAFQAVQBXAFYAWABZAFoAWABbAFkAXABdAF4AXABfAF0AYABhAGIAYABjAGEAYgBkAGUAYgBlAGYAZwBoAGkAZwBqAGgAawBsAG0AawBuAGwAbwBwAHEAbwByAHAAcwB0AG8AcwB1AHQAdgB3AHgAdgB5AHcAegB7AHwAegB9AHsAfgB/AIAAfgCBAH8AggCDAIQAggCFAIMA"),
-"material": SubResource("StandardMaterial3D_k7voq"),
+"material": SubResource("StandardMaterial3D_se78b"),
 "name": "Lamp",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
