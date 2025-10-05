@@ -10,6 +10,7 @@ var clue: String
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready() -> void:
 	$Sprite3D.transparency = 1.0
+	set_next_line()
 
 func _parse_text(sliced_text: Array[String]) -> String:
 	if not sliced_text.size() == 3:
