@@ -614,7 +614,7 @@ shadow_enabled = true
 transform = Transform3D(-0.99272585, 0, -0.12039679, 0, 1, 0, 0.12039679, 0, -0.99272585, 1.5574886, 0.04984218, 5.8805804)
 
 [node name="Player" parent="." instance=ExtResource("2_rwgxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.557148, 0, 26.597403)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.979549, 0, 8.923743)
 collision_mask = 139
 
 [node name="Rain" type="CPUParticles3D" parent="."]
@@ -908,6 +908,8 @@ shape = SubResource("BoxShape3D_kpybi")
 
 [node name="Ground" type="StaticBody3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+collision_layer = 129
+collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground"]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 2.258902, 0.011384964, 5.6728907)

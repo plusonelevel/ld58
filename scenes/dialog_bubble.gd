@@ -11,7 +11,7 @@ var clue: Variant
 func _ready() -> void:
 	Signals.clue_collected.connect(_on_clue_collected)
 	
-	$Sprite3D.transparency = 1.0
+	$Sprite3D.modulate.a = 0.0
 	_set_next_line()
 	show()
 
@@ -46,10 +46,10 @@ func deactivate() -> void:
 
 
 func _fade_in(tween = create_tween()) -> void:
-	tween.tween_property($Sprite3D, "transparency", 0.0, 0.5)
+	tween.tween_property($Sprite3D, "modulate:a", 1.0, 0.5)
 
 func _fade_out(tween = create_tween()) -> void:
-	tween.tween_property($Sprite3D, "transparency", 1.0, 0.5)
+	tween.tween_property($Sprite3D, "modulate:a", 0.0, 0.5)
 
 func _set_next_line(tween = create_tween()) -> void:
 	tween.tween_callback(func ():
