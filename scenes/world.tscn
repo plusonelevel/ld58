@@ -1568,15 +1568,35 @@ transform = Transform3D(0.58070296, 0, 0.8141155, 0, 1, 0, -0.8141155, 0, 0.5807
 transform = Transform3D(-0.98628557, 0, -0.1650477, 0, 1, 0, 0.1650477, 0, -0.98628557, 0, 0, 0)
 lines = Array[String](["Hello there.", "Oh it's you - hi ^Mark^!", "Did you hit ^Lisa^ or not?"])
 
-[node name="worker_animated2" parent="NPCs" instance=ExtResource("13_x2olw")]
-transform = Transform3D(-0.0451875, 0, 0.34707072, 0, 0.34999996, 0, -0.34707072, 0, -0.0451875, 0.8850509, 0.041059613, 22.719418)
+[node name="Worker" parent="NPCs" instance=ExtResource("2_4wyf3")]
+transform = Transform3D(-0.12910709, 0, 0.9916307, 0, 1, 0, -0.9916307, 0, -0.12910709, 0.8850509, 0.041059613, 22.719418)
 
-[node name="worker_animated3" parent="NPCs" instance=ExtResource("14_817gm")]
-transform = Transform3D(0.30715942, 0, -0.16778886, 0, 0.34999996, 0, 0.16778886, 0, 0.30715942, 0.27739418, 0.041059732, 23.356913)
+[node name="Model" parent="NPCs/Worker" instance=ExtResource("13_x2olw")]
+transform = Transform3D(0.35, 0, 2.2351742e-08, 0, 0.34999996, 0, -2.2351742e-08, 0, 0.35, 0, 0, 0)
 
-[node name="sleeper_animated" parent="NPCs" instance=ExtResource("40_e75v4")]
-transform = Transform3D(-0.9771755, 0, 0.21243349, 0, 1, 0, -0.21243349, 0, -0.9771755, 8.587191, 0.19699351, 5.94014)
-script = null
+[node name="DialogBubble" parent="NPCs/Worker" instance=ExtResource("5_eo1xk")]
+transform = Transform3D(0.9953962, 0, -0.09584576, 0, 1, 0, 0.09584576, 0, 0.9953962, 0, 0, 0)
+lines = Array[String](["Hello there.", "Oh it's you - hi ^Mark^!", "Did you hit ^Lisa^ or not?"])
+
+[node name="Worker2" parent="NPCs" instance=ExtResource("2_4wyf3")]
+transform = Transform3D(0.8775983, 0, -0.47939673, 0, 1, 0, 0.47939673, 0, 0.8775983, 0.27739418, 0.041059732, 23.356913)
+
+[node name="Model" parent="NPCs/Worker2" instance=ExtResource("14_817gm")]
+transform = Transform3D(0.35000008, 0, 1.4901161e-08, 0, 0.34999996, 0, -1.4901161e-08, 0, 0.35000008, 0, 0, 0)
+
+[node name="DialogBubble" parent="NPCs/Worker2" instance=ExtResource("5_eo1xk")]
+transform = Transform3D(0.9953962, 0, -0.09584576, 0, 1, 0, 0.09584576, 0, 0.9953962, 0, 0, 0)
+lines = Array[String](["Hello there.", "Oh it's you - hi ^Mark^!", "Did you hit ^Lisa^ or not?"])
+
+[node name="Sleeper" parent="NPCs" instance=ExtResource("2_4wyf3")]
+transform = Transform3D(-0.97717553, 0, 0.21243338, 0, 1, 0, -0.21243338, 0, -0.97717553, 8.587191, 0.19699351, 5.94014)
+
+[node name="Model" parent="NPCs/Sleeper" instance=ExtResource("40_e75v4")]
+transform = Transform3D(1, 0, -1.0430813e-07, 0, 1, 0, 1.0430813e-07, 0, 1, 0, 0, 0)
+
+[node name="DialogBubble" parent="NPCs/Sleeper" instance=ExtResource("5_eo1xk")]
+transform = Transform3D(0.9953962, 0, -0.09584576, 0, 1, 0, 0.09584576, 0, 0.9953962, 0, 0, 0)
+lines = Array[String](["Hello there.", "Oh it's you - hi ^Mark^!", "Did you hit ^Lisa^ or not?"])
 
 [node name="SFX" type="Node3D" parent="."]
 
