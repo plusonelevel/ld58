@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dfi0631ll270h"
-path="res://.godot/imported/GrenzeGotisch-VariableFont_wght.ttf-087b2c6f8df0030d30ee28d14d501bae.fontdata"
+uid="uid://bhc6t14vnfmv3"
+path="res://.godot/imported/AlanSans-VariableFont_wght.ttf-a41ce3fa817480168f9e4b62081ba6eb.fontdata"
 
 [deps]
 
-source_file="res://assets/2d/GrenzeGotisch-VariableFont_wght.ttf"
-dest_files=["res://.godot/imported/GrenzeGotisch-VariableFont_wght.ttf-087b2c6f8df0030d30ee28d14d501bae.fontdata"]
+source_file="res://assets/2d/AlanSans-VariableFont_wght.ttf"
+dest_files=["res://.godot/imported/AlanSans-VariableFont_wght.ttf-a41ce3fa817480168f9e4b62081ba6eb.fontdata"]
 
 [params]
 

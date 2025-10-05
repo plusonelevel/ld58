@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://x3ywrgcb37gq"]
+
+[ext_resource type="FontFile" uid="uid://bhc6t14vnfmv3" path="res://assets/2d/AlanSans-VariableFont_wght.ttf" id="1_nx7ni"]
+
+[resource]
+Label/colors/font_color = Color(0.60129, 0.45058602, 0.2516089, 1)
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("1_nx7ni")
+RichTextLabel/colors/default_color = Color(0.68471897, 0.6565222, 0.5932928, 1)
+RichTextLabel/font_sizes/normal_font_size = 16
+RichTextLabel/fonts/normal_font = ExtResource("1_nx7ni")
