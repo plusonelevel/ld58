@@ -1,0 +1,12 @@
+extends Node3D
+
+@onready var boat = $"." 
+var base_y := 0.0
+var time := 0.0
+
+func _ready() -> void:
+	base_y = boat.position.y
+
+func _process(delta: float) -> void:
+	time += delta
+	boat.position.y = base_y + sin(time * 2.0) * 0.05
