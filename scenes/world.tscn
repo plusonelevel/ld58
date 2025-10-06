@@ -48,11 +48,11 @@
 [ext_resource type="PackedScene" uid="uid://bgs7riru8i0qb" path="res://scenes/sleeper_animated.tscn" id="40_e75v4"]
 [ext_resource type="Resource" uid="uid://cnm71a7nre6gd" path="res://dialogues/guard.tres" id="42_x28ej"]
 [ext_resource type="AudioStream" uid="uid://b57ebbhvwyxph" path="res://assets/sfx/seagull-beach-sound-effect.mp3" id="43_6oujy"]
-[ext_resource type="AudioStream" uid="uid://lxbndtnwta70" path="res://assets/sfx/ytmp3free.cc_seawaves-sound-effect-youtubemp3free.org.mp3" id="44_hi6a0"]
 [ext_resource type="Resource" uid="uid://cll6r6sqliwio" path="res://dialogues/dude.tres" id="45_1jxku"]
 [ext_resource type="AudioStream" uid="uid://d4lem1n71bw86" path="res://assets/sfx/ship_horn.mp3" id="45_eo1xk"]
 [ext_resource type="Resource" uid="uid://bvqkwaow2uk3k" path="res://dialogues/worker.tres" id="48_1dgkn"]
 [ext_resource type="Resource" uid="uid://4iapisou8cs6" path="res://dialogues/sleeper.tres" id="50_e68xj"]
+[ext_resource type="AudioStream" uid="uid://b4igkq8p1nvsx" path="res://assets/sfx/sewaves.mp3" id="52_5hglh"]
 [ext_resource type="AudioStream" uid="uid://dbfe4nql32fdd" path="res://assets/sfx/rainsfx.mp3" id="54_qg546"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
@@ -884,20 +884,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fw2mw")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_x28ej"]
-"uv_scale": Vector4(0, 0, 0, 0),
-_surfaces = [{
-"aabb": AABB(-0.19949627, -0.0069464943, -0.2116225, 0.40081674, 0.017575318, 0.4121132),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-resource_name = "Material"
-cull_mode = 2
-"index_data": PackedByteArray("EAACAAAAEAABAAIAEQAQAAAAEQAAAAYAEgABABAAEgADAAEAEwAQABEAEwASABAAFAARAAYAFAAGAA4ADQAUAA4ADQAOAA8ADAAUAA0AFQARABQADAAVABQAFQATABEABAAVAAwABAAWABUAFgATABUACwAWAAQACwAKABYAFgAXABMACgAXABYAFwASABMACgAJABcAFwAYABIACQAYABcAGAADABIACQAHABgAGAAFAAMABwAFABgABwAIAAUA"),
-"lods": [0.013707273, PackedByteArray("AAABAAIAAwABAAAABAADAAAABAAFAAMABAAAAAYABwAIAAUACQAHAAUACQAFAAQACgAJAAQACwAKAAQADAAEAAYADAAGAA0ADQAGAA4ADQAOAA8A")],
-"vertex_count": 25,
-
-"attribute_data": PackedByteArray("////P/+/AAD//wAA/38AAP8/////PwAA////fwAA/z8AAAAAAAD/fwAA/78AAP///3////+///////+///////+//z////8//z//P/9//z//P/+//3//f/9//7//P/9//7//v////3//v/9//3//v/+//3//v/+//3//f/9/////v/+//7////9//7////+//7//vwAA/7//P/9//z//vwAA/3//P/+//z////9//7//P/+/AAD/P/8/AAD/P/8//z//P/8//3//P/9//3//P/9//3//P/8//3//P/+/AAD/v/8//38AAP9//3//v/8//7//f/9//z//v/9//7//Pw=="),
-"vertex_count": 64,
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kleer"]
 resource_name = "Concrete"
 cull_mode = 2
