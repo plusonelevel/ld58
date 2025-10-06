@@ -13,5 +13,6 @@ reactions = Dictionary[String, String]({
 "Popov": "Good guy! A bit hotheaded, maybe... He's probably resting up now.",
 "leadership": "Man, thank god ^Samira^ is here to run things. Imagine if Pop... Wait, did I say Samira? I mean! I didn't! Okay!",
 "morale": "Well I know ^Mario^ isn't too excited to be here, but the rest of us are still doin' fine!",
-"sleepy asshole": "I, ehm... Oh, you mean ^Popov^! Yeah, he's from the alternating shift. Must be catching up on some sleep about now..."
+"sleepy asshole": "I, ehm... Oh, you mean ^Popov^! Yeah, he's from the alternating shift. Must be catching up on some sleep about now...",
+"strike": "The strike! You know? The one that's happening here? Right now?"
 })
