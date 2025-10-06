@@ -4,4 +4,14 @@
 
 [resource]
 script = ExtResource("1_xxc4n")
-lines = Array[String](["Greetings, child."])
+lines = Array[String](["Greetings, child.", "Are you in search of a blessing? Well let me put your mind to rest.", "That is what I am here for. To offer spiritual guidance in these troubling times.", "Here we go. Repeat after me...", "* clears throat *", "Our Father,", "Who art in heaven,", "hallowed be Thy name.", "Thy kingdom come,", "Thy will be done, on earth as it is in heaven.", "Give us this day our daily bread,", "and forgive us our trespasses", "as we forgive those who trespass against us,", "and lead us not into temptation,", "but deliver us from evil. Amen.", "...", "Alright! Feel free to come anytime, ^Father Justice^ is here for you!"])
+reactions = Dictionary[String, String]({
+"Father Justice": "I serve God first, and the cause second.",
+"Hello there!": "And God be with ye!",
+"OTHER": "How about we pray instead?",
+"Popov": "He is quite a spirited one, that man. No talent for ^leadership^ at all, but fortunately there are others better suited for that.",
+"Samira": "...I see you come informed. Well, I am afraid I cannot let you see her.",
+"morale": "Keeping the ^morale^ up is my main task at this moment.",
+"sleepy asshole": "I will ask you to not use such words in front of the house of God.",
+"strike": "Just a few more days, she says... I pray she's right. As long as the ^morale^ holds..."
+})

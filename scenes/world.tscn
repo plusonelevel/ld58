@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=4 uid="uid://bnrkuyntlrd4g"]
+[gd_scene load_steps=125 format=4 uid="uid://bnrkuyntlrd4g"]
 
 [ext_resource type="Script" uid="uid://bi2kup3sjd7mx" path="res://autoloads/cursor_manager.gd" id="1_q5onr"]
 [ext_resource type="PackedScene" uid="uid://1npejj82gb3u" path="res://scenes/npc.tscn" id="2_4wyf3"]
@@ -51,6 +51,7 @@
 [ext_resource type="Resource" uid="uid://cll6r6sqliwio" path="res://dialogues/dude.tres" id="45_1jxku"]
 [ext_resource type="AudioStream" uid="uid://d4lem1n71bw86" path="res://assets/sfx/ship_horn.mp3" id="45_eo1xk"]
 [ext_resource type="Resource" uid="uid://bvqkwaow2uk3k" path="res://dialogues/worker.tres" id="48_1dgkn"]
+[ext_resource type="Resource" uid="uid://bl3hxkkdjp71y" path="res://dialogues/worker2.tres" id="49_qg546"]
 [ext_resource type="Resource" uid="uid://4iapisou8cs6" path="res://dialogues/sleeper.tres" id="50_e68xj"]
 [ext_resource type="AudioStream" uid="uid://b4igkq8p1nvsx" path="res://assets/sfx/sewaves.mp3" id="52_5hglh"]
 [ext_resource type="AudioStream" uid="uid://dbfe4nql32fdd" path="res://assets/sfx/rainsfx.mp3" id="54_qg546"]
@@ -1719,7 +1720,7 @@ transform = Transform3D(0.35000008, 0, 1.4901161e-08, 0, 0.34999996, 0, -1.49011
 
 [node name="DialogBubble" parent="NPCs/Worker2" instance=ExtResource("5_eo1xk")]
 transform = Transform3D(0.9953962, 0, -0.09584576, 0, 1, 0, 0.09584576, 0, 0.9953962, 0, 0, 0)
-dialogues = ExtResource("48_1dgkn")
+dialogues = ExtResource("49_qg546")
 
 [node name="Sleeper" parent="NPCs" instance=ExtResource("2_4wyf3")]
 transform = Transform3D(-0.97717553, 0, 0.21243338, 0, 1, 0, -0.21243338, 0, -0.97717553, 8.379319, 0.1969934, 6.1123548)
