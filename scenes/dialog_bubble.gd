@@ -77,22 +77,22 @@ func next_line() -> void:
 		_fade_in(tween)
 
 
-func get_reaction(key: String):
-	if dialogues.reactions.keys().has(key):
-		var tween = create_tween()
-		if active:
-			_fade_out(tween)
+func get_reaction(input: String):
+	var key = input if dialogues.reactions.keys().has(input) else "OTHER"
+	var tween = create_tween()
+	if active:
+		_fade_out(tween)
+	
+	tween.tween_callback(func ():
+		set_text(dialogues.reactions[key])
+	)
+	
+	if active:
+		_fade_in(tween)
+	else:
+		activate(tween)
 		
-		tween.tween_callback(func ():
-			set_text(dialogues.reactions[key])
-		)
-		
-		if active:
-			_fade_in(tween)
-		else:
-			activate(tween)
-			
-		lines_idx = -999
+	lines_idx = -999
 		
 
 func _on_clue_collected():
