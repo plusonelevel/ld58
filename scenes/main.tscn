@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://bnrkuyntlrd4g" path="res://scenes/world.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://csij6y8uv2kgd" path="res://scenes/drag_n_drop.gd" id="2_0wfyh"]
 [ext_resource type="Theme" uid="uid://ubjvo0ow3xp2" path="res://scenes/journal_theme.tres" id="4_tbgi4"]
-[ext_resource type="Script" uid="uid://c7xa1bb7jjbbo" path="res://audiomanager.gd" id="5_o6xl0"]
+[ext_resource type="Script" path="res://audiomanager.gd" id="5_o6xl0"]
 [ext_resource type="AudioStream" uid="uid://wkaap2aftonj" path="res://assets/sfx/journal_open.mp3" id="6_tipki"]
 [ext_resource type="AudioStream" uid="uid://b8bqdxxuq8dtc" path="res://assets/sfx/journal_close.mp3" id="7_85g3d"]
 [ext_resource type="AudioStream" uid="uid://bvd0sxidqvfyb" path="res://assets/sfx/clue_drag.mp3" id="8_85g3d"]
 [ext_resource type="AudioStream" uid="uid://cj17jehuvagb0" path="res://assets/sfx/clue_drop.mp3" id="9_choun"]
-[ext_resource type="Script" uid="uid://te65n2nn5o6s" path="res://scenes/volume.gd" id="10_choun"]
+[ext_resource type="Script" path="res://scenes/volume.gd" id="10_choun"]
 [ext_resource type="Theme" uid="uid://x3ywrgcb37gq" path="res://scenes/theme.tres" id="10_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://chkkethhesl28" path="res://assets/2d/audio.png" id="10_ya4ey"]
 [ext_resource type="Script" uid="uid://c5ech4l4b53jg" path="res://scenes/menu.gd" id="11_a8y0u"]
@@ -44,7 +44,6 @@ theme = ExtResource("4_tbgi4")
 theme_override_colors/font_color = Color(0.76092625, 0.69020855, 0.89113533, 1)
 theme_override_constants/outline_size = 3
 text = "TEST"
-horizontal_alignment = 2
 
 [node name="AudioBus" type="Node" parent="."]
 script = ExtResource("5_o6xl0")
