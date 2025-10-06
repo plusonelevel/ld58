@@ -30,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19, 0)
 script = ExtResource("2_0wfyh")
 
 [node name="DraggedClue" type="Label" parent="DragNDrop"]
-modulate = Color(0.3304808, 0.17316845, 0.08402479, 1)
+modulate = Color(0.6048376, 0.3918728, 0, 1)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -38,7 +38,7 @@ offset_top = -58.0
 offset_right = 82.0
 grow_vertical = 0
 theme = ExtResource("4_tbgi4")
-theme_override_colors/font_color = Color(0.9963588, 0.5292062, 0, 1)
+theme_override_colors/font_color = Color(0.76092625, 0.69020855, 0.89113533, 1)
 theme_override_constants/outline_size = 3
 text = "TEST"
 horizontal_alignment = 2

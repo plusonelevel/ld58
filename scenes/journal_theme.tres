@@ -1,5 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://ubjvo0ow3xp2"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ubjvo0ow3xp2"]
+
+[ext_resource type="FontFile" uid="uid://cj7nhjwm7aww8" path="res://assets/2d/CONSTANB.TTF" id="1_gj5r6"]
 
 [resource]
 Label/colors/font_color = Color(0.33328643, 0.15931082, 1.2032687e-07, 1)
 Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("1_gj5r6")

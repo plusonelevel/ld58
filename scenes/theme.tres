@@ -1,21 +1,12 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://x3ywrgcb37gq"]
 
+[ext_resource type="FontFile" uid="uid://cj7nhjwm7aww8" path="res://assets/2d/CONSTANB.TTF" id="1_jm5n4"]
 [ext_resource type="FontFile" uid="uid://bhc6t14vnfmv3" path="res://assets/2d/AlanSans-VariableFont_wght.ttf" id="1_nx7ni"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nx7ni"]
-bg_color = Color(0.19545963, 0.1934059, 0.1557877, 1)
+bg_color = Color(0.15686275, 0.039215688, 0, 1)
 border_width_left = 20
-border_color = Color(0.0988322, 0.06883779, 0, 1)
-corner_detail = 20
-expand_margin_left = 20.0
-expand_margin_top = 10.0
-expand_margin_right = 100.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4svv"]
-bg_color = Color(0.69430506, 0.68717587, 0.6197106, 1)
-border_width_left = 20
-border_color = Color(0.22020537, 0.17084107, 2.4065375e-08, 1)
+border_color = Color(0.21960784, 0.16078432, 0, 1)
 corner_detail = 20
 expand_margin_left = 20.0
 expand_margin_top = 10.0
@@ -23,9 +14,9 @@ expand_margin_right = 100.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jm5n4"]
-bg_color = Color(0.0840938, 0.08188937, 0.062083155, 1)
+bg_color = Color(0.30055463, 0.103132315, 0, 1)
 border_width_left = 20
-border_color = Color(0.0988322, 0.06883779, 0, 1)
+border_color = Color(0.48462605, 0.36661372, 0, 1)
 corner_detail = 20
 expand_margin_left = 20.0
 expand_margin_top = 10.0
@@ -34,7 +25,7 @@ expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gw00"]
 border_width_top = 10
-border_color = Color(0.19607843, 0.19215687, 0.15686275, 1)
+border_color = Color(0.15686275, 0.039215688, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gp8n"]
 bg_color = Color(0.19545963, 0.1934059, 0.1557877, 1)
@@ -43,17 +34,17 @@ border_color = Color(0.0988322, 0.06883779, 0, 1)
 corner_detail = 20
 
 [resource]
-Button/colors/font_color = Color(0.7919914, 0.75144964, 0.64266086, 1)
-Button/colors/font_focus_color = Color(0.7921569, 0.7529412, 0.6431373, 1)
-Button/colors/font_hover_color = Color(0.19281262, 0.17121962, 0.117233865, 1)
-Button/colors/font_pressed_color = Color(0.7921569, 0.7529412, 0.6431373, 1)
+Button/colors/font_color = Color(0.9411765, 0.67058825, 0.28627452, 1)
+Button/colors/font_focus_color = Color(0.9411765, 0.67058825, 0.28627452, 1)
+Button/colors/font_hover_color = Color(0.4862745, 0.3647059, 0, 1)
+Button/colors/font_pressed_color = Color(0.9411765, 0.67058825, 0.28627452, 1)
 Button/font_sizes/font_size = 36
-Button/fonts/font = ExtResource("1_nx7ni")
+Button/fonts/font = ExtResource("1_jm5n4")
 Button/styles/disabled = SubResource("StyleBoxFlat_nx7ni")
 Button/styles/focus = SubResource("StyleBoxFlat_nx7ni")
-Button/styles/hover = SubResource("StyleBoxFlat_w4svv")
+Button/styles/hover = SubResource("StyleBoxFlat_jm5n4")
 Button/styles/normal = SubResource("StyleBoxFlat_nx7ni")
-Button/styles/pressed = SubResource("StyleBoxFlat_jm5n4")
+Button/styles/pressed = SubResource("StyleBoxFlat_nx7ni")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_4gw00")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_4gw00")
 HSlider/styles/slider = SubResource("StyleBoxFlat_4gw00")
