@@ -55,7 +55,12 @@ func _ready():
 	cursor = cursor_default
 	set_default()
 	
-	click_timer = get_node("/root/Main/CursorClickTimer")
+	
+	var new_click_timer = Timer.new()
+	new_click_timer.name = "CursorClickTimer" 
+	add_child(new_click_timer)
+	click_timer = get_node("CursorClickTimer")
+	#get_node("/root/Main/CursorClickTimer")
 	click_timer.timeout.connect(set_default)
 
 func _input(event: InputEvent) -> void:
@@ -64,10 +69,11 @@ func _input(event: InputEvent) -> void:
 			click_timer.stop()
 			set_active()
 		else:
-			# Have to reset the connection otherwise the old cursor value is gonna be used for some reason
+			#Have to reset the connection otherwise the old cursor value is gonna be used for some reason
 			click_timer.timeout.disconnect(set_default)
 			click_timer.timeout.connect(set_default)
 			click_timer.start()
+			pass
 			
 
 

@@ -1666,18 +1666,6 @@ transform = Transform3D(0.9999114, 1.200007e-07, 0.008817315, 1.2223273e-07, -1,
 mesh = SubResource("ArrayMesh_kw1hy")
 skeleton = NodePath("")
 
-[node name="fountain" type="StaticBody3D" parent="Environment"]
-transform = Transform3D(0.46442476, 0, -0.88561255, 0, 1, 0, 0.88561255, 0, 0.46442476, 1.3865829, -0.029699326, 16.04845)
-
-[node name="Cube" type="MeshInstance3D" parent="Environment/fountain"]
-transform = Transform3D(2.6893115, 0, 0, 0, 0.49666077, 0, 0, 0, 2.6893115, 0, 0.18302035, 0)
-mesh = SubResource("ArrayMesh_pgdmo")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/fountain"]
-transform = Transform3D(1.0000005, 0, 0, 0, 1, 0, 0, 0, 1.0000005, -0.020382881, 1.1324158, 0.016663551)
-shape = SubResource("BoxShape3D_1dgkn")
-
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="Priest" parent="NPCs" instance=ExtResource("2_4wyf3")]
@@ -1772,6 +1760,18 @@ parameters/looping = true
 
 [node name="RainSFX" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("54_qg546")
-volume_db = -34.0
+volume_db = -20.0
+
+[node name="fountain" type="StaticBody3D" parent="."]
+transform = Transform3D(0.46442476, 0, -0.88561255, 0, 1, 0, 0.88561255, 0, 0.46442476, 1.3865829, -0.029699326, 16.04845)
+
+[node name="Cube" type="MeshInstance3D" parent="fountain"]
+transform = Transform3D(2.6893115, 0, 0, 0, 0.49666077, 0, 0, 0, 2.6893115, 0, 0.18302035, 0)
+mesh = SubResource("ArrayMesh_pgdmo")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fountain"]
+transform = Transform3D(1.0000005, 0, 0, 0, 1, 0, 0, 0, 1.0000005, -0.020382881, 1.1324158, 0.016663551)
+shape = SubResource("BoxShape3D_1dgkn")
 
 [connection signal="mouse_entered" from="NPCs/Dude" to="." method="_on_dude_mouse_entered"]

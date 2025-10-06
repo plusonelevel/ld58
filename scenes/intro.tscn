@@ -1,8 +1,12 @@
-[gd_scene load_steps=39 format=4 uid="uid://bpsucba4xbl2l"]
+[gd_scene load_steps=40 format=4 uid="uid://bpsucba4xbl2l"]
 
 [ext_resource type="Shader" uid="uid://cmsm531dfofdu" path="res://water.gdshader" id="1_4bx60"]
 [ext_resource type="PackedScene" uid="uid://dtoww16jy3xbb" path="res://scenes/boat.tscn" id="2_i2l1n"]
 [ext_resource type="PackedScene" uid="uid://tkydsrqa7jt8" path="res://assets/3d/journal.blend" id="3_4bx60"]
+[ext_resource type="Theme" uid="uid://x3ywrgcb37gq" path="res://scenes/theme.tres" id="4_i2l1n"]
+[ext_resource type="Script" uid="uid://c5ech4l4b53jg" path="res://scenes/menu.gd" id="5_wfs7u"]
+[ext_resource type="AudioStream" uid="uid://b4igkq8p1nvsx" path="res://assets/sfx/sewaves.mp3" id="6_bu1yb"]
+[ext_resource type="AudioStream" uid="uid://dbfe4nql32fdd" path="res://assets/sfx/rainsfx.mp3" id="8_272cy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0juu"]
 transparency = 1
@@ -36,51 +40,6 @@ material = SubResource("ShaderMaterial_7t5mc")
 size = Vector2(30, 50)
 subdivide_width = 30
 subdivide_depth = 30
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t1qkj"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-energy_multiplier = 0.2
-
-[sub_resource type="Sky" id="Sky_rwgxs"]
-sky_material = SubResource("ProceduralSkyMaterial_t1qkj")
-
-[sub_resource type="Environment" id="Environment_272cy"]
-background_mode = 2
-sky = SubResource("Sky_rwgxs")
-tonemap_mode = 2
-glow_enabled = true
-glow_bloom = 0.1
-glow_blend_mode = 1
-fog_enabled = true
-fog_light_color = Color(0.35871875, 0.38752094, 0.4370037, 1)
-fog_height = 1.65
-fog_height_density = 0.1012
-volumetric_fog_density = 0.03
-volumetric_fog_albedo = Color(0.8385496, 0.9239985, 0.9716901, 1)
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g2els"]
-animation = &"Idle"
-
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_qhqgy"]
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_qhqgy"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3vyb7"]
-animation = &"Walking"
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_i2l1n"]
-graph_offset = Vector2(115.23132, 66.64462)
-nodes/output/position = Vector2(1380, 120)
-nodes/Idle/node = SubResource("AnimationNodeAnimation_g2els")
-nodes/Idle/position = Vector2(880, 60)
-nodes/Walking/node = SubResource("AnimationNodeAnimation_3vyb7")
-nodes/Walking/position = Vector2(700, 260)
-nodes/Walk/node = SubResource("AnimationNodeBlend2_qhqgy")
-nodes/Walk/position = Vector2(1140, 60)
-nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_qhqgy")
-nodes/TimeScale/position = Vector2(920, 260)
-node_connections = [&"output", 0, &"Walk", &"Walk", 0, &"Idle", &"Walk", 1, &"TimeScale", &"TimeScale", 0, &"Walking"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svelb"]
 resource_name = "Cloak"
@@ -1348,6 +1307,36 @@ _data = {
 &"Walking": SubResource("Animation_avhoo")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4bx60"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wfs7u"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_4bx60")
+nodes/Animation/position = Vector2(140, 171)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t1qkj"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+energy_multiplier = 0.2
+
+[sub_resource type="Sky" id="Sky_rwgxs"]
+sky_material = SubResource("ProceduralSkyMaterial_t1qkj")
+
+[sub_resource type="Environment" id="Environment_272cy"]
+background_mode = 2
+sky = SubResource("Sky_rwgxs")
+tonemap_mode = 2
+glow_enabled = true
+glow_bloom = 0.1
+glow_blend_mode = 1
+fog_enabled = true
+fog_light_color = Color(0.35871875, 0.38752094, 0.4370037, 1)
+fog_height = 1.65
+fog_height_density = 0.1012
+volumetric_fog_density = 0.03
+volumetric_fog_albedo = Color(0.8385496, 0.9239985, 0.9716901, 1)
+
 [node name="Intro" type="Node3D"]
 
 [node name="Rain" type="CPUParticles3D" parent="."]
@@ -1372,33 +1361,15 @@ mesh = SubResource("PlaneMesh_bu1yb")
 skeleton = NodePath("../..")
 
 [node name="boat" parent="." instance=ExtResource("2_i2l1n")]
-transform = Transform3D(-0.40158013, 0, 0.9158239, 0, 1, 0, -0.9158239, 0, -0.40158013, 0, 0.14818996, 0)
+transform = Transform3D(-0.40158013, 0, 0.9158239, 0, 1, 0, -0.9158239, 0, -0.40158013, 0, 0.2552263, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_272cy")
+[node name="player_animated" type="Node3D" parent="boat"]
+transform = Transform3D(-0.27694696, 0, 0.21401033, 0, 0.35000002, 0, -0.21401033, 0, -0.27694696, 0.40063965, 0.45926678, 0.6296861)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, -3.366848, 1.9073486e-06, 6.593979)
-light_color = Color(0.6567175, 0.7282702, 0.7819412, 1)
-shadow_enabled = true
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.29680836, 0.31455058, 0.90164447, 0, 0.9441926, -0.32939404, -0.9549371, 0.097766906, 0.28024423, 1.944, 1.031, 0.082)
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../player_animated")
-tree_root = SubResource("AnimationNodeBlendTree_i2l1n")
-anim_player = NodePath("../player_animated/AnimationPlayer")
-parameters/Walk/blend_amount = 0.0
-parameters/TimeScale/scale = 1.7000000000000028
-
-[node name="player_animated" type="Node3D" parent="."]
-transform = Transform3D(0.059783988, 0, -0.34485632, 0, 0.35, 0, 0.34485632, 0, 0.059783988, 0.6229131, 0.60745674, -0.30065715)
-
-[node name="Armature" type="Node3D" parent="player_animated"]
+[node name="Armature" type="Node3D" parent="boat/player_animated"]
 transform = Transform3D(-0.01, 1.5099579e-09, -6.600236e-17, 0, -4.3711387e-10, -0.01, -1.5099579e-09, -0.01, 4.3711387e-10, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="player_animated/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="boat/player_animated/Armature"]
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 8.4703295e-22, -2.5410988e-21, 2.5410988e-21, 0, 1, 8.4703295e-22, -1, 0, 16.230026, -3.347573, -140.7787)
@@ -1575,46 +1546,109 @@ bones/24/position = Vector3(-1.8967694e-06, 12.039198, 2.8070062e-06)
 bones/24/rotation = Quaternion(-2.9438528e-08, -5.820767e-10, -2.6484488e-09, 1)
 bones/24/scale = Vector3(0.99999994, 0.9999999, 0.99999994)
 
-[node name="Cloak" type="MeshInstance3D" parent="player_animated/Armature/Skeleton3D"]
+[node name="Cloak" type="MeshInstance3D" parent="boat/player_animated/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_wfs7u")
 skin = SubResource("Skin_es01l")
 
-[node name="Hat" type="MeshInstance3D" parent="player_animated/Armature/Skeleton3D"]
+[node name="Hat" type="MeshInstance3D" parent="boat/player_animated/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_0naf5")
 skin = SubResource("Skin_es01l")
 
-[node name="Human_male" type="MeshInstance3D" parent="player_animated/Armature/Skeleton3D"]
+[node name="Human_male" type="MeshInstance3D" parent="boat/player_animated/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_bu1yb")
 skin = SubResource("Skin_es01l")
 
-[node name="Shirt" type="MeshInstance3D" parent="player_animated/Armature/Skeleton3D"]
+[node name="Shirt" type="MeshInstance3D" parent="boat/player_animated/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_t1qkj")
 skin = SubResource("Skin_es01l")
 
-[node name="Shoe1" type="MeshInstance3D" parent="player_animated/Armature/Skeleton3D"]
+[node name="Shoe1" type="MeshInstance3D" parent="boat/player_animated/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_272cy")
 skin = SubResource("Skin_es01l")
 
-[node name="Shoe2" type="MeshInstance3D" parent="player_animated/Armature/Skeleton3D"]
+[node name="Shoe2" type="MeshInstance3D" parent="boat/player_animated/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_37iue")
 skin = SubResource("Skin_es01l")
 
-[node name="Trousers" type="MeshInstance3D" parent="player_animated/Armature/Skeleton3D"]
+[node name="Trousers" type="MeshInstance3D" parent="boat/player_animated/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_n6p8m")
 skin = SubResource("Skin_es01l")
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="player_animated/Armature/Skeleton3D"]
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="boat/player_animated/Armature/Skeleton3D"]
 transform = Transform3D(0.6880318, 0.0784557, -0.72142607, -0.5583241, 0.6922761, -0.45719424, 0.46355692, 0.7173541, 0.52011234, 54.455025, 55.314194, -147.19086)
 bone_name = "mixamorig_LeftHand"
 bone_idx = 10
 
-[node name="journal" parent="player_animated/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("3_4bx60")]
+[node name="journal" parent="boat/player_animated/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("3_4bx60")]
 transform = Transform3D(32.914463, -83.43044, 71.979164, -98.60906, 11.220868, 58.09773, -49.17207, -78.34828, -68.32755, 10.126781, 32.84182, 18.84377)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="player_animated"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="boat/player_animated"]
 libraries = {
 &"": SubResource("AnimationLibrary_wu1e1")
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="boat/player_animated"]
+tree_root = SubResource("AnimationNodeBlendTree_wfs7u")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_272cy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, -3.366848, 1.9073486e-06, 6.593979)
+light_color = Color(0.6567175, 0.7282702, 0.7819412, 1)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.4905237, -0.56093496, 0.6668872, 0, 0.7652811, 0.64369637, -0.8714279, -0.31574833, 0.3753885, 3.7857656, 3.644312, 0.611244)
+fov = 50.6
+
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.6271763, 0)
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_i2l1n")
+script = ExtResource("5_wfs7u")
+
+[node name="Play" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 665.0
+offset_top = 194.0
+offset_right = 927.0
+offset_bottom = 273.0
+theme_override_font_sizes/font_size = 60
+text = "Play"
+alignment = 0
+
+[node name="Quit" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 665.0
+offset_top = 302.0
+offset_right = 927.0
+offset_bottom = 350.0
+text = "Quit"
+alignment = 0
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="SeaSFX" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(0.69026387, -0.12652737, -0.712409, 0, 0.98459184, -0.17486838, 0.7235578, 0.120705314, 0.67962813, -18.60317, 1.9905093, 27.537134)
+stream = ExtResource("6_bu1yb")
+volume_db = -10.0
+unit_size = 0.5
+autoplay = true
+emission_angle_enabled = true
+emission_angle_degrees = 59.0
+
+[node name="RainSFX" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("8_272cy")
+volume_db = -20.0
+
+[connection signal="pressed" from="MainMenu/Play" to="MainMenu" method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/Quit" to="MainMenu" method="_on_quit_pressed"]
