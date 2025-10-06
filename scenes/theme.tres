@@ -27,10 +27,10 @@ expand_margin_bottom = 10.0
 border_width_top = 10
 border_color = Color(0.15686275, 0.039215688, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gp8n"]
-bg_color = Color(0.19545963, 0.1934059, 0.1557877, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4svv"]
+bg_color = Color(0.60061324, 0.59181046, 0.5816847, 1)
 border_width_left = 20
-border_color = Color(0.0988322, 0.06883779, 0, 1)
+border_color = Color(0.15686275, 0.039215688, 0, 1)
 corner_detail = 20
 
 [resource]
@@ -48,8 +48,10 @@ Button/styles/pressed = SubResource("StyleBoxFlat_nx7ni")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_4gw00")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_4gw00")
 HSlider/styles/slider = SubResource("StyleBoxFlat_4gw00")
+Label/colors/font_color = Color(0.16365299, 0.1403917, 0.10803778, 1)
 Label/font_sizes/font_size = 28
-Panel/styles/panel = SubResource("StyleBoxFlat_7gp8n")
+Label/fonts/font = ExtResource("1_jm5n4")
+Panel/styles/panel = SubResource("StyleBoxFlat_w4svv")
 RichTextLabel/colors/default_color = Color(0.68471897, 0.6565222, 0.5932928, 1)
 RichTextLabel/font_sizes/normal_font_size = 16
 RichTextLabel/fonts/normal_font = ExtResource("1_nx7ni")

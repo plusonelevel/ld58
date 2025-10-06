@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dtoww16jy3xbb" path="res://scenes/boat.tscn" id="2_i2l1n"]
 [ext_resource type="PackedScene" uid="uid://tkydsrqa7jt8" path="res://assets/3d/journal.blend" id="3_4bx60"]
 [ext_resource type="Theme" uid="uid://x3ywrgcb37gq" path="res://scenes/theme.tres" id="4_i2l1n"]
-[ext_resource type="Script" path="res://scenes/menu.gd" id="5_wfs7u"]
+[ext_resource type="Script" uid="uid://cfibr23r6aebc" path="res://scenes/menu_main.gd" id="5_0naf5"]
 [ext_resource type="AudioStream" uid="uid://b4igkq8p1nvsx" path="res://assets/sfx/sewaves.mp3" id="6_bu1yb"]
 [ext_resource type="AudioStream" uid="uid://dbfe4nql32fdd" path="res://assets/sfx/rainsfx.mp3" id="8_272cy"]
 
@@ -1614,7 +1614,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_i2l1n")
-script = ExtResource("5_wfs7u")
+script = ExtResource("5_0naf5")
 
 [node name="Play" type="Button" parent="MainMenu"]
 layout_mode = 0
