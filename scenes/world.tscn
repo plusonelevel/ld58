@@ -966,7 +966,7 @@ light_color = Color(0.6567175, 0.7282702, 0.7819412, 1)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_rwgxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2220445, 0, 9.021785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.312664, -4.7683716e-07, 17.011063)
 collision_mask = 139
 
 [node name="Rain" type="CPUParticles3D" parent="."]
@@ -1351,6 +1351,7 @@ transform = Transform3D(0.9799942, 0, 0.19902587, 0, 1, 0, -0.19902587, 0, 0.979
 
 [node name="crane" parent="Environment" instance=ExtResource("21_ctatt")]
 transform = Transform3D(-0.99408287, 0, 0.108623944, 0, 1, 0, -0.108623944, 0, -0.99408287, -5.9749694, -0.01862812, 21.872982)
+input_ray_pickable = false
 
 [node name="pier" type="Node3D" parent="Environment"]
 transform = Transform3D(0.73244786, 0, -0.6808231, 0, 1, 0, 0.6808231, 0, 0.73244786, -6.5288134, -0.48222506, 21.159737)
@@ -1481,6 +1482,7 @@ spot_angle = 74.7097
 
 [node name="booth" parent="Environment" instance=ExtResource("25_xgqkh")]
 transform = Transform3D(0.4538661, 0, -0.8910699, 0, 1, 0, 0.8910699, 0, 0.4538661, -13.439355, -0.12606573, 16.474903)
+input_ray_pickable = false
 
 [node name="boat" parent="Environment" instance=ExtResource("26_munwf")]
 transform = Transform3D(-0.40158013, 0, 0.9158239, 0, 1, 0, -0.9158239, 0, -0.40158013, -19.027946, -0.3456807, 24.017092)
@@ -1683,7 +1685,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.967966, 0.0037230253, 16.
 transform = Transform3D(-0.31928208, 0, -0.14338392, 0, 0.35, 0, 0.14338392, 0, -0.31928208, 0, 0, 0)
 
 [node name="DialogBubble" parent="NPCs/Guard" instance=ExtResource("5_eo1xk")]
-transform = Transform3D(0.980809, 0, 0.19497031, 0, 1, 0, -0.19497031, 0, 0.980809, 0.15158367, -2.3841858e-07, -0.7701225)
+transform = Transform3D(0.5807596, 0, -0.81407493, 0, 1, 0, 0.81407493, 0, 0.5807596, 0.40817547, -2.3841858e-07, -0.24547195)
 dialogues = ExtResource("42_x28ej")
 
 [node name="Dude" parent="NPCs" instance=ExtResource("2_4wyf3")]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://dtoww16jy3xbb"]
 
-[ext_resource type="Script" uid="uid://yvji2gnoey3h" path="res://scenes/boat.gd" id="1_qyrje"]
+[ext_resource type="Script" path="res://scenes/boat.gd" id="1_qyrje"]
 [ext_resource type="PackedScene" uid="uid://c5ttpuhf8vsi8" path="res://scenes/ground_lamp.tscn" id="2_lw6pk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwn1x"]
