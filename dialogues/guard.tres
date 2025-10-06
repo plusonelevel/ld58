@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_6qlv1")
-lines = Array[String](["^Hello there^, friend!", " Did you get through the blockade before they sealed the access?"])
+lines = Array[String](["Oh, a new face! ^Hello there!^", " Did you get through the blockade before they sealed the access?"])
 reactions = Dictionary[String, String]({
 "Gary": "Yeah, I don't really have to be here, now with the ^strike^ and all that... Just like to be helpful, ya know?",
 "Hello there!": "Hi! I'm ^Gary^! What can I do ya for?",
