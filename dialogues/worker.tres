@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bvqkwaow2uk3k"]
+
+[ext_resource type="Script" uid="uid://w21so8t4rj2v" path="res://dialogues/dialogue.gd" id="1_pk27l"]
+
+[resource]
+script = ExtResource("1_pk27l")
+lines = Array[String](["*grumble grumble*"])
