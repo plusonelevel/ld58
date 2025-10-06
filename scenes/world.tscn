@@ -1694,7 +1694,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.967966, 0.0037230253, 16.
 transform = Transform3D(-0.31928208, 0, -0.14338392, 0, 0.35, 0, 0.14338392, 0, -0.31928208, 0, 0, 0)
 
 [node name="DialogBubble" parent="NPCs/Guard" instance=ExtResource("5_eo1xk")]
-transform = Transform3D(0.5807596, 0, -0.81407493, 0, 1, 0, 0.81407493, 0, 0.5807596, 0.40817547, -2.3841858e-07, -0.24547195)
+transform = Transform3D(0.43008554, 0, -0.902788, 0, 1, 0, 0.902788, 0, 0.43008554, -0.104660034, -2.3841858e-07, -0.46301842)
 dialogues = ExtResource("42_x28ej")
 
 [node name="Dude" parent="NPCs" instance=ExtResource("2_4wyf3")]
