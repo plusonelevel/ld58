@@ -13,6 +13,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	time += delta
-	boat.position.y = base_y + sin(time * 2.0) * 0.05
+	boat.position.y = base_y + sin(time * 2.0) * 0.1
 	boat.position.x = base_x + time
 	#boat.position.z = base_z + time

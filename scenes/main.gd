@@ -7,4 +7,4 @@ func _ready() -> void:
 	$DragNDrop.camera = camera
 
 func _on_game_finished():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://scenes/outro.tscn")
