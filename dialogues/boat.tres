@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bsc1jmxag4g6y"]
+
+[ext_resource type="Script" uid="uid://w21so8t4rj2v" path="res://dialogues/dialogue.gd" id="1_p7vhf"]
+
+[resource]
+script = ExtResource("1_p7vhf")
+lines = Array[String](["Do you know the name of the strike leader?"])
+reactions = Dictionary[String, String]({
+"OTHER": "Try again...",
+"Samira": "WIN CONDITION"
+})

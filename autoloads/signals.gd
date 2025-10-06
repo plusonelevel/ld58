@@ -11,4 +11,7 @@ signal journal_opened
 signal journal_closed
 signal journal_clue_picked(clue: String)
 
+# Game
+signal game_finished
+
 @warning_ignore_restore("unused_signal")

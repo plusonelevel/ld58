@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=4 uid="uid://bnrkuyntlrd4g"]
+[gd_scene load_steps=126 format=4 uid="uid://bnrkuyntlrd4g"]
 
 [ext_resource type="Script" uid="uid://bi2kup3sjd7mx" path="res://autoloads/cursor_manager.gd" id="1_q5onr"]
 [ext_resource type="PackedScene" uid="uid://1npejj82gb3u" path="res://scenes/npc.tscn" id="2_4wyf3"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://c5ttpuhf8vsi8" path="res://scenes/ground_lamp.tscn" id="24_ctatt"]
 [ext_resource type="PackedScene" uid="uid://d00nvslr5qgyq" path="res://scenes/booth.tscn" id="25_xgqkh"]
 [ext_resource type="PackedScene" uid="uid://dtoww16jy3xbb" path="res://scenes/boat.tscn" id="26_munwf"]
+[ext_resource type="Resource" uid="uid://bsc1jmxag4g6y" path="res://dialogues/boat.tres" id="27_pf35h"]
 [ext_resource type="PackedScene" uid="uid://vcv7uogqpvra" path="res://assets/3d/tarp2.blend" id="27_ts3gi"]
 [ext_resource type="PackedScene" uid="uid://c7pjdjix1k85y" path="res://assets/3d/table.blend" id="28_37qwj"]
 [ext_resource type="PackedScene" uid="uid://br5cga4fbccy3" path="res://scenes/box_2.tscn" id="29_37qwj"]
@@ -967,7 +968,7 @@ light_color = Color(0.6567175, 0.7282702, 0.7819412, 1)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_rwgxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.312664, -4.7683716e-07, 17.011063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.956358, -4.7683716e-07, 25.616512)
 collision_mask = 139
 
 [node name="Rain" type="CPUParticles3D" parent="."]
@@ -1238,6 +1239,7 @@ skeleton = NodePath("")
 
 [node name="pier2" type="StaticBody3D" parent="Environment"]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -12.938252, -0.5125017, 22.818007)
+input_ray_pickable = false
 
 [node name="Plane" type="MeshInstance3D" parent="Environment/pier2"]
 transform = Transform3D(4.469527, 0, 0, 0, 4.469527, 0, 0, 0, 18.965664, 0, 0, 0)
@@ -1485,8 +1487,14 @@ spot_angle = 74.7097
 transform = Transform3D(0.4538661, 0, -0.8910699, 0, 1, 0, 0.8910699, 0, 0.4538661, -13.439355, -0.12606573, 16.474903)
 input_ray_pickable = false
 
-[node name="boat" parent="Environment" instance=ExtResource("26_munwf")]
-transform = Transform3D(-0.40158013, 0, 0.9158239, 0, 1, 0, -0.9158239, 0, -0.40158013, -19.027946, -0.3456807, 24.017092)
+[node name="BoatNpc" parent="Environment" instance=ExtResource("2_4wyf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.027946, -0.3456807, 24.017092)
+
+[node name="boat" parent="Environment/BoatNpc" instance=ExtResource("26_munwf")]
+
+[node name="DialogBubble" parent="Environment/BoatNpc" instance=ExtResource("5_eo1xk")]
+transform = Transform3D(-0.99293655, 0, -0.11864653, 0, 1, 0, 0.11864653, 0, -0.99293655, 0, 0, 0)
+dialogues = ExtResource("27_pf35h")
 
 [node name="fence_broken2" parent="Environment" instance=ExtResource("20_7iits")]
 transform = Transform3D(-0.99764013, 0, -0.068659514, 0, 1, 0, 0.068659514, 0, -0.99764013, -11.598562, -0.08125067, 12.957836)

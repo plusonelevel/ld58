@@ -10,9 +10,10 @@ func _ready() -> void:
 	Signals.clue_drag_finished.connect(_on_clue_drag_finished)
 	
 	var player: AnimationPlayer = $Model/AnimationPlayer
-	player.play("Idle")
+	if player:
+		player.play("Idle")
 	
-	$Dummy.hide()
+	#$Dummy.hide()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

@@ -83,8 +83,12 @@ func get_reaction(input: String):
 	if active:
 		_fade_out(tween)
 	
+	var reaction_text = dialogues.reactions[key]
+	if reaction_text == "WIN CONDITION":
+		Signals.game_finished.emit()
+		
 	tween.tween_callback(func ():
-		set_text(dialogues.reactions[key])
+		set_text(reaction_text)
 	)
 	
 	if active:
