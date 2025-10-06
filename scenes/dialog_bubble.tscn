@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2t3nyue5x0kc"]
+[gd_scene load_steps=4 format=3 uid="uid://d2t3nyue5x0kc"]
 
 [ext_resource type="Script" uid="uid://3tonjbnd2mic" path="res://scenes/dialog_bubble.gd" id="1_8iv74"]
-[ext_resource type="Theme" uid="uid://x3ywrgcb37gq" path="res://scenes/theme.tres" id="2_ij1m5"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8iv74"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -13,7 +12,6 @@ size = Vector3(1.314209, 0.49035645, 1.2128906)
 collision_layer = 64
 collision_mask = 0
 script = ExtResource("1_8iv74")
-lines = Array[String](["Did you hit ^Lucy^ or not?", "Oh hi ^Mark^!"])
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.839391, 0.8511423, 0.5558929)
@@ -35,7 +33,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("2_ij1m5")
 bbcode_enabled = true
 fit_content = true
 horizontal_alignment = 1
