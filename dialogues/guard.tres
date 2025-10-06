@@ -4,4 +4,14 @@
 
 [resource]
 script = ExtResource("1_6qlv1")
-lines = Array[String](["^Hello there!^ Can I help you?"])
+lines = Array[String](["^Hello there^, friend!", " Did you get through the blockade before they sealed the access?"])
+reactions = Dictionary[String, String]({
+"Gary": "Yeah, I don't really have to be here, now with the ^strike^ and all that... Just like to be helpful, ya know?",
+"Hello there!": "Hi! I'm ^Gary^! What can I do ya for?",
+"Horváth": "Oh, he's right over there with ^Luigi^.",
+"OTHER": "Sorry bud, I don't really know much about that.",
+"Popov": "Good guy! A bit hotheaded, maybe... He's probably resting up now.",
+"leadership": "Man, thank god ^Samira^ is here to run things. Imagine if Pop... Wait, did I say Samira? I mean! I didn't! Okay!",
+"morale": "Well I know ^Mario^ isn't too excited to be here, but the rest of us are still doin' fine!",
+"sleepy asshole": "I, ehm... Oh, you mean ^Popov^! Yeah, he's from the alternating shift. Must be catching up on some sleep about now..."
+})

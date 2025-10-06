@@ -4,4 +4,15 @@
 
 [resource]
 script = ExtResource("1_l554s")
-lines = Array[String](["I did not hit her! I DID NAWT!!", "Oh hi ^Mark^!"])
+lines = Array[String](["This place sucks!", "Hey, wanna hear a joke?", "This ^strike^! Ha! You know? It's a joke!", "Nobody cares and we're just slowly starving here. I mean..."])
+reactions = Dictionary[String, String]({
+"Hello there!": "Hey, man.  Stuck here too, huh?",
+"Luigi": "Ironically, we don't really get along. And no, we're not brothers.",
+"Mario": "It's-a me!",
+"OTHER": "Forget that, man.",
+"Popov": "Yeah, screw him.",
+"Samira": "Uh... Please don't tell her I said any of what I said before.",
+"morale": "What do you think? Pretty low as far as I'm concerned.",
+"sleepy asshole": "Yeah, screw him.",
+"strike": "Worst. Idea. Ever. Can you believe it this ^sleepy asshole^ over there came up with the idea?"
+})

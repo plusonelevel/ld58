@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_m68pw")
-lines = Array[String](["Some change to ^spare^ sir?"])
+lines = Array[String](["zz...", "zzz...", "zzzz..."])
 reactions = Dictionary[String, String]({
-"Mark": "^Mark^? I hate that guy!"
+"OTHER": "zzzzz... * he is fast asleep. *"
 })

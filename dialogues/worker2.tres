@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bl3hxkkdjp71y"]
+
+[ext_resource type="Script" uid="uid://w21so8t4rj2v" path="res://dialogues/dialogue.gd" id="1_jmuyl"]
+
+[resource]
+script = ExtResource("1_jmuyl")
+lines = Array[String](["* is apparently in a heated argument with the other guy *"])
+reactions = Dictionary[String, String]({
+"Hello there!": "Go bother someone else, will ya?!",
+"Horváth": "Sure, that's me. Nice to meet you... Now PISS OFF!",
+"OTHER": "Piss off!",
+"sleepy asshole": "I HAVE WHAT?!?!"
+})
