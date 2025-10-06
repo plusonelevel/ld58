@@ -1596,10 +1596,10 @@ transform = Transform3D(0.9953962, 0, -0.09584576, 0, 1, 0, 0.09584576, 0, 0.995
 dialogues = ExtResource("48_1dgkn")
 
 [node name="Sleeper" parent="NPCs" instance=ExtResource("2_4wyf3")]
-transform = Transform3D(-0.97717553, 0, 0.21243338, 0, 1, 0, -0.21243338, 0, -0.97717553, 8.587191, 0.19699351, 5.94014)
+transform = Transform3D(-0.97717553, 0, 0.21243338, 0, 1, 0, -0.21243338, 0, -0.97717553, 8.379319, 0.1969934, 6.1123548)
 
 [node name="Model" parent="NPCs/Sleeper" instance=ExtResource("40_e75v4")]
-transform = Transform3D(1, 0, -1.0430813e-07, 0, 1, 0, 1.0430813e-07, 0, 1, 0, 0, 0)
+transform = Transform3D(1.0000001, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, 1.0000001, -0.24184418, 0, 0.18479204)
 
 [node name="DialogBubble" parent="NPCs/Sleeper" instance=ExtResource("5_eo1xk")]
 transform = Transform3D(0.9953962, 0, -0.09584576, 0, 1, 0, 0.09584576, 0, 0.9953962, 0, 0, 0)
