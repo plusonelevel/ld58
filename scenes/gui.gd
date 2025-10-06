@@ -66,6 +66,7 @@ func _on_journal_closed():
 	opened_book.hide()
 	journal_overlay.hide()
 	
+	
 	book.show()
 	book_area.show()
 

@@ -46,6 +46,7 @@ func start_drag(clue: String) -> void:
 	dragged_clue_label.text = clue
 	dragged_clue_label.show()
 	Inventory.dragged_item = clue
+	Signals.clue_drag_initiated.emit()
 
 
 func handle_drag():
