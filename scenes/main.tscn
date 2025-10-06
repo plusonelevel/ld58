@@ -1,19 +1,22 @@
-[gd_scene load_steps=15 format=3 uid="uid://b38wx223fpw4j"]
+[gd_scene load_steps=18 format=3 uid="uid://b38wx223fpw4j"]
 
 [ext_resource type="Script" uid="uid://ccc0rnt6kojnm" path="res://scenes/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bnrkuyntlrd4g" path="res://scenes/world.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://csij6y8uv2kgd" path="res://scenes/drag_n_drop.gd" id="2_0wfyh"]
 [ext_resource type="Theme" uid="uid://ubjvo0ow3xp2" path="res://scenes/journal_theme.tres" id="4_tbgi4"]
-[ext_resource type="Script" path="res://audiomanager.gd" id="5_o6xl0"]
+[ext_resource type="Script" uid="uid://c7xa1bb7jjbbo" path="res://audiomanager.gd" id="5_o6xl0"]
 [ext_resource type="AudioStream" uid="uid://wkaap2aftonj" path="res://assets/sfx/journal_open.mp3" id="6_tipki"]
 [ext_resource type="AudioStream" uid="uid://b8bqdxxuq8dtc" path="res://assets/sfx/journal_close.mp3" id="7_85g3d"]
 [ext_resource type="AudioStream" uid="uid://bvd0sxidqvfyb" path="res://assets/sfx/clue_drag.mp3" id="8_85g3d"]
 [ext_resource type="AudioStream" uid="uid://cj17jehuvagb0" path="res://assets/sfx/clue_drop.mp3" id="9_choun"]
-[ext_resource type="Script" path="res://scenes/volume.gd" id="10_choun"]
+[ext_resource type="Script" uid="uid://te65n2nn5o6s" path="res://scenes/volume.gd" id="10_choun"]
 [ext_resource type="Theme" uid="uid://x3ywrgcb37gq" path="res://scenes/theme.tres" id="10_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://chkkethhesl28" path="res://assets/2d/audio.png" id="10_ya4ey"]
-[ext_resource type="Script" path="res://scenes/menu.gd" id="11_a8y0u"]
+[ext_resource type="Script" uid="uid://c5ech4l4b53jg" path="res://scenes/menu.gd" id="11_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://c35f6dkha1vfb" path="res://assets/2d/audio2.png" id="12_trceg"]
+[ext_resource type="Texture2D" uid="uid://ijtlmwr8yhff" path="res://assets/2d/cross.png" id="15_muem4"]
+[ext_resource type="Texture2D" uid="uid://bqdscr50jevnw" path="res://assets/2d/cross_pressed.png" id="16_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://cuoyrvg4mtjgq" path="res://assets/2d/cross_hover.png" id="17_0ld40"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0wfyh")
@@ -119,6 +122,80 @@ max_value = 2.0
 step = 0.1
 script = ExtResource("10_choun")
 
+[node name="Tutorial" type="Panel" parent="GameMenu"]
+visible = false
+layout_mode = 0
+offset_left = 117.0
+offset_top = 45.0
+offset_right = 479.0
+offset_bottom = 549.0
+
+[node name="Label" type="Label" parent="GameMenu/Tutorial"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 71.0
+offset_right = 170.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 45
+text = "I."
+
+[node name="Label2" type="Label" parent="GameMenu/Tutorial/Label"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 57.0
+offset_right = 186.0
+offset_bottom = 126.0
+text = "Talk to people"
+
+[node name="Label2" type="Label" parent="GameMenu/Tutorial"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 204.0
+offset_right = 182.0
+offset_bottom = 273.0
+theme_override_font_sizes/font_size = 45
+text = "II."
+
+[node name="Label2" type="Label" parent="GameMenu/Tutorial/Label2"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 60.0
+offset_right = 188.0
+offset_bottom = 129.0
+text = "Collect words"
+
+[node name="Label3" type="Label" parent="GameMenu/Tutorial"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 327.0
+offset_right = 167.0
+offset_bottom = 396.0
+theme_override_font_sizes/font_size = 45
+text = "III."
+
+[node name="Label2" type="Label" parent="GameMenu/Tutorial/Label3"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 65.0
+offset_right = 197.0
+offset_bottom = 134.0
+text = "Use the words"
+
+[node name="Close" type="TextureButton" parent="GameMenu/Tutorial"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -81.0
+offset_top = 12.0
+offset_right = -17.0
+offset_bottom = 76.0
+grow_horizontal = 0
+texture_normal = ExtResource("15_muem4")
+texture_pressed = ExtResource("16_dp3eg")
+texture_hover = ExtResource("17_0ld40")
+
 [connection signal="pressed" from="GameMenu/Continue" to="GameMenu" method="_on_continue_pressed"]
 [connection signal="pressed" from="GameMenu/How to play" to="GameMenu" method="_on_how_to_play_pressed"]
 [connection signal="pressed" from="GameMenu/Quit" to="GameMenu" method="_on_quit_pressed"]
+[connection signal="pressed" from="GameMenu/Tutorial/Close" to="GameMenu" method="_on_close_pressed"]
