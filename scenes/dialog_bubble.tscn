@@ -12,7 +12,6 @@ size = Vector3(1.314209, 0.49035645, 1.2128906)
 collision_layer = 64
 collision_mask = 0
 script = ExtResource("1_8iv74")
-lines = Array[String](["Did you hit ^Lucy^ or not?", "Oh hi ^Mark^!"])
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.839391, 0.8511423, 0.5558929)
