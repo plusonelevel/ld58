@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfcequcnju0ap"]
+
+[ext_resource type="Theme" uid="uid://ubjvo0ow3xp2" path="res://scenes/journal_theme.tres" id="1_5yeda"]
+[ext_resource type="Script" uid="uid://2m1abvmpdea8" path="res://scenes/journal_overlay.gd" id="1_otkn5"]
+[ext_resource type="Texture2D" uid="uid://ijtlmwr8yhff" path="res://assets/2d/cross.png" id="2_5yeda"]
+[ext_resource type="Texture2D" uid="uid://bqdscr50jevnw" path="res://assets/2d/cross_pressed.png" id="3_kghpg"]
+[ext_resource type="Texture2D" uid="uid://cuoyrvg4mtjgq" path="res://assets/2d/cross_hover.png" id="4_6mwqx"]
+
+[node name="JournalOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -348.0
+offset_top = -124.0
+offset_right = -52.0
+offset_bottom = 430.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_5yeda")
+script = ExtResource("1_otkn5")
+
+[node name="Close" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_right = 3.0
+offset_bottom = 64.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_5yeda")
+texture_pressed = ExtResource("3_kghpg")
+texture_hover = ExtResource("4_6mwqx")
+
+[node name="Clues" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 1
+offset_left = 52.0
+offset_top = 60.0
+offset_right = 202.0
+offset_bottom = 472.0
+
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

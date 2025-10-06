@@ -4,17 +4,16 @@ extends StaticBody3D
 @export var lines: Array[String]
 @onready var label = $Sprite3D/SubViewport/RichTextLabel
 
-var lines_idx = -1
+var lines_idx := -1
 var clue: Variant
+var active := false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready() -> void:
 	Signals.clue_collected.connect(_on_clue_collected)
-	Signals.journal_opened.connect(_on_journal_opened)
-	Signals.journal_closed.connect(_on_journal_closed)
 	
-	$Sprite3D.modulate.a = 0.0
 	_set_next_line()
+	$Sprite3D.modulate.a = 0.0
 	show()
 
 func _parse_text(sliced_text: Array[String], is_known_clue: bool) -> String:
@@ -38,10 +37,12 @@ func set_text(text: String) -> void:
 	label.text = text
 
 func activate() -> void:
+	active = true
 	$CollisionShape3D.disabled = false
 	_fade_in()
 
 func deactivate() -> void:
+	active = false
 	$CollisionShape3D.disabled = true
 	var tween = create_tween()
 	_fade_out(tween)
@@ -56,11 +57,17 @@ func _fade_out(tween = create_tween()) -> void:
 func _set_next_line(tween = create_tween()) -> void:
 	tween.tween_callback(func ():
 		lines_idx += 1
+		if lines_idx >= lines.size():
+			lines_idx = 0
+		
 		set_text(lines[lines_idx])
 	)
 
 func next_line() -> void:
-	if lines_idx < lines.size() - 1:
+	if lines_idx == -1:
+		activate()
+
+	if lines.size() > 1:
 		var tween = create_tween()
 		_fade_out(tween)
 		_set_next_line(tween)
@@ -70,9 +77,3 @@ func next_line() -> void:
 func _on_clue_collected():
 	# Re-parse current line
 	set_text(lines[lines_idx])
-
-func _on_journal_opened():
-	hide()
-
-func _on_journal_closed():
-	show()

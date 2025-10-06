@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://7quum2wjn13b"]
+
+[ext_resource type="Script" uid="uid://vf5dp176xxr" path="res://scenes/journal_clue.gd" id="1_fmvdp"]
+
+[node name="JournalClue" type="Label"]
+offset_right = 1.0
+offset_bottom = 23.0
+mouse_filter = 1
+script = ExtResource("1_fmvdp")

@@ -3,8 +3,6 @@ extends Node3D
 @onready var dragged_clue_label := $DraggedClue
 @export var camera : Camera3D
 
-var dragged_value: Variant
-
 const LAYERS = {
 	"world": 0b00000001,
 	"player": 0b00000100,
@@ -17,41 +15,45 @@ const RAYCAST_LENGTH = 1000
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	dragged_clue_label.hide()
+	Signals.journal_clue_picked.connect(_on_journal_clue_picked)
 
 
 func _process(_delta) -> void:
-	if dragged_value:
+	if Inventory.dragged_item:
 		handle_drag()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 				handle_click()
-			elif dragged_value:
-				stop_drag()
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed and Inventory.dragged_item:
+			stop_drag()
+			
 
 func handle_click() -> void:
 	var target = _get_click_collider()
 	if target and target is DialogBubble:
 		if target.clue:
-			dragged_clue_label.position = target.position
+			dragged_clue_label.position = get_viewport().get_mouse_position()
 			start_drag(target.clue)
 
 
 func start_drag(clue: String) -> void:
 	dragged_clue_label.text = clue
 	dragged_clue_label.show()
-	dragged_value = clue
+	Inventory.dragged_item = clue
 
 
 func handle_drag():
 	var drag_target = _get_mouse_target(LAYERS["ground"])
 	if not drag_target.is_empty():
-		dragged_clue_label.position.x = drag_target.position.x
-		dragged_clue_label.position.z = drag_target.position.z
+		var mouse_pos = get_viewport().get_mouse_position()
+		dragged_clue_label.position.x = mouse_pos.x
+		dragged_clue_label.position.y = mouse_pos.y - 20
 
 
 func _get_mouse_target(mask: int):
@@ -75,6 +77,10 @@ func _get_click_collider():
 
 
 func stop_drag():
-	Signals.clue_drag_finished.emit(dragged_value)
+	Signals.clue_drag_finished.emit(Inventory.dragged_item)
 	dragged_clue_label.hide()
-	dragged_value = null
+	Inventory.dragged_item = null
+	
+	
+func _on_journal_clue_picked(clue: String):
+	start_drag(clue)

@@ -1,5 +1,6 @@
 extends Node
 
+var dragged_item: Variant
 var inventory: Array[String]
 
 func _init(): 

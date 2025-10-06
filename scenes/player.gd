@@ -8,7 +8,7 @@ class_name Player extends CharacterBody3D
 @onready var char_model = $player_animated
 
 const SPEED = 2.5
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 2.0
 
 func _ready() -> void:
 	pass

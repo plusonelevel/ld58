@@ -890,7 +890,7 @@ light_color = Color(0.6567175, 0.7282702, 0.7819412, 1)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_rwgxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.979549, 0, 8.923743)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6773458, 0, 18.801609)
 collision_mask = 139
 
 [node name="Rain" type="CPUParticles3D" parent="."]
@@ -1090,6 +1090,7 @@ transform = Transform3D(0.54386103, -0.20966412, 0.6269134, -0.095709994, 1.4639
 
 [node name="bus" type="StaticBody3D" parent="Environment"]
 transform = Transform3D(0.3477867, 0, -0.9375737, 0, 1, 0, 0.9375737, 0, 0.3477867, 9.569328, -0.049996853, 5.6335993)
+input_ray_pickable = false
 
 [node name="Cube" type="MeshInstance3D" parent="Environment/bus"]
 transform = Transform3D(5.674888, 0, 0, 0, -0.19367893, -2.6379957, 0, 2.225709, -0.22955571, 0, 1.0212296, 0.2840297)
@@ -1544,6 +1545,7 @@ transform = Transform3D(-0.5004231, 0, 0.865781, 0, 1, 0, -0.865781, 0, -0.50042
 [node name="Model" parent="NPCs/Priest" instance=ExtResource("38_3l05q")]
 
 [node name="DialogBubble" parent="NPCs/Priest" instance=ExtResource("5_eo1xk")]
+lines = Array[String](["Greetings, child."])
 
 [node name="Guard" parent="NPCs" instance=ExtResource("2_4wyf3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.967966, 0.0037230253, 16.317467)
@@ -1575,7 +1577,7 @@ transform = Transform3D(-0.12910709, 0, 0.9916307, 0, 1, 0, -0.9916307, 0, -0.12
 transform = Transform3D(0.35, 0, 2.2351742e-08, 0, 0.34999996, 0, -2.2351742e-08, 0, 0.35, 0, 0, 0)
 
 [node name="DialogBubble" parent="NPCs/Worker" instance=ExtResource("5_eo1xk")]
-transform = Transform3D(0.9953962, 0, -0.09584576, 0, 1, 0, 0.09584576, 0, 0.9953962, 0, 0, 0)
+transform = Transform3D(-0.989483, 0, 0.14464974, 0, 1, 0, -0.14464974, 0, -0.989483, 0, 0, 0)
 lines = Array[String](["Hello there.", "Oh it's you - hi ^Mark^!", "Did you hit ^Lisa^ or not?"])
 
 [node name="Worker2" parent="NPCs" instance=ExtResource("2_4wyf3")]
@@ -1596,7 +1598,7 @@ transform = Transform3D(1, 0, -1.0430813e-07, 0, 1, 0, 1.0430813e-07, 0, 1, 0, 0
 
 [node name="DialogBubble" parent="NPCs/Sleeper" instance=ExtResource("5_eo1xk")]
 transform = Transform3D(0.9953962, 0, -0.09584576, 0, 1, 0, 0.09584576, 0, 0.9953962, 0, 0, 0)
-lines = Array[String](["Hello there.", "Oh it's you - hi ^Mark^!", "Did you hit ^Lisa^ or not?"])
+lines = Array[String](["Got any ^spare^ change mistah?"])
 
 [node name="SFX" type="Node3D" parent="."]
 

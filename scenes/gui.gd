@@ -1,8 +1,9 @@
 extends Node3D
 
 @onready var book = $Book
-@onready var book_area = $BookArea
 @onready var opened_book = $OpenedBook
+@onready var book_area = $BookAreaClosed
+@onready var journal_overlay = $JournalOverlay
 
 var book_orig_pos: Vector3
 var book_target_pos: Vector3
@@ -20,6 +21,7 @@ func _ready() -> void:
 	book_target_rot = book.rotation
 	
 	Signals.clue_drag_finished.connect(_on_clue_drag_finished)
+	Signals.journal_opened.connect(_on_journal_opened)
 	Signals.journal_closed.connect(_on_journal_closed)
 
 func _on_clue_drag_finished(clue: String) -> void:
@@ -51,6 +53,26 @@ func _on_book_area_gui_input(event: InputEvent) -> void:
 			book.hide()
 			opened_book.show()
 
+
+func _on_journal_opened():
+	book.hide()
+	book_area.hide()
+	
+	opened_book.show()
+	journal_overlay.show()
+
+
 func _on_journal_closed():
-	book.show()
 	opened_book.hide()
+	journal_overlay.hide()
+	
+	book.show()
+	book_area.show()
+
+
+func _on_journal_overlay_mouse_entered() -> void:
+	is_in_book_area = true
+
+
+func _on_journal_overlay_mouse_exited() -> void:
+	is_in_book_area = false
