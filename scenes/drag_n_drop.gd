@@ -53,7 +53,7 @@ func handle_drag():
 	var drag_target = _get_mouse_target(LAYERS["ground"])
 	if not drag_target.is_empty():
 		var mouse_pos = get_viewport().get_mouse_position()
-		dragged_clue_label.position.x = mouse_pos.x
+		dragged_clue_label.position.x = mouse_pos.x + 10
 		dragged_clue_label.position.y = mouse_pos.y - 20
 
 
