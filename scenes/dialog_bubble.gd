@@ -4,6 +4,7 @@ extends StaticBody3D
 @export var dialogues: Dialogue
 @onready var label = $Sprite3D/SubViewport/RichTextLabel
 
+var current_unparsed_line: String
 var lines_idx := -1
 var clue: Variant
 var active := false
@@ -27,6 +28,7 @@ func _parse_text(sliced_text: Array[String], is_known_clue: bool) -> String:
 	return parsed_text
 
 func set_text(text: String) -> void:
+	current_unparsed_line = text
 	var slices = text.split("^")
 	
 	if slices.size() > 1:
@@ -95,4 +97,4 @@ func get_reaction(key: String):
 
 func _on_clue_collected():
 	# Re-parse current line
-	set_text(dialogues.lines[lines_idx])
+	set_text(current_unparsed_line)
