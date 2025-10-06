@@ -1,7 +1,7 @@
 class_name DialogBubble
 extends StaticBody3D
 
-@export var lines: Array[String]
+@export var dialogues: Dialogue
 @onready var label = $Sprite3D/SubViewport/RichTextLabel
 
 var lines_idx := -1
@@ -36,16 +36,18 @@ func set_text(text: String) -> void:
 		
 	label.text = text
 
-func activate() -> void:
+func activate(tween = create_tween()) -> void:
 	active = true
 	$CollisionShape3D.disabled = false
-	_fade_in()
+	_fade_in(tween)
 
 func deactivate() -> void:
 	active = false
+	lines_idx = -1
 	$CollisionShape3D.disabled = true
 	var tween = create_tween()
 	_fade_out(tween)
+	_set_next_line(tween)
 
 
 func _fade_in(tween = create_tween()) -> void:
@@ -56,24 +58,42 @@ func _fade_out(tween = create_tween()) -> void:
 
 func _set_next_line(tween = create_tween()) -> void:
 	tween.tween_callback(func ():
-		lines_idx += 1
-		if lines_idx >= lines.size():
+		lines_idx = 0 if lines_idx < 0 else lines_idx + 1
+		if lines_idx >= dialogues.lines.size():
 			lines_idx = 0
 		
-		set_text(lines[lines_idx])
+		set_text(dialogues.lines[lines_idx])
 	)
 
-func next_line() -> void:
-	if lines_idx == -1:
-		activate()
 
-	if lines.size() > 1:
+func next_line() -> void:
+	if dialogues.lines.size() > 1 or lines_idx == -999:
 		var tween = create_tween()
-		_fade_out(tween)
+		if active:
+			_fade_out(tween)
 		_set_next_line(tween)
 		_fade_in(tween)
 
 
+func get_reaction(clue: String):
+	print_debug(clue, dialogues.reactions.find_key(clue))
+	if dialogues.reactions.keys().has(clue):
+		var tween = create_tween()
+		if active:
+			_fade_out(tween)
+		
+		tween.tween_callback(func ():
+			set_text(dialogues.reactions[clue])
+		)
+		
+		if active:
+			_fade_in(tween)
+		else:
+			activate(tween)
+			
+		lines_idx = -999
+		
+
 func _on_clue_collected():
 	# Re-parse current line
-	set_text(lines[lines_idx])
+	set_text(dialogues.lines[lines_idx])

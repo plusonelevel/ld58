@@ -8,8 +8,10 @@ var hovering = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Signals.clue_drag_finished.connect(_on_clue_drag_finished)
+	
 	var player: AnimationPlayer = $Model/AnimationPlayer
 	player.play("Idle")
+	
 	$Dummy.hide()
 
 func _input(event: InputEvent) -> void:
@@ -58,7 +60,7 @@ func _on_clue_drag_finished(clue: String):
 
 func receive_input(input: String):
 	Signals.journal_closed.emit()
-	print_debug("%s received %s as input" % [name, input])
+	bubble.get_reaction(input)
 
 func can_display_dialogue() -> bool:
 	return active and hovering and (Inventory.dragged_item == null or Inventory.is_clue_known(Inventory.dragged_item))

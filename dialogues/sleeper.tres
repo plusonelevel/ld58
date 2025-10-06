@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://4iapisou8cs6"]
+
+[ext_resource type="Script" uid="uid://w21so8t4rj2v" path="res://dialogues/dialogue.gd" id="1_m68pw"]
+
+[resource]
+script = ExtResource("1_m68pw")
+lines = Array[String](["Some change to ^spare^ sir?"])
+reactions = Dictionary[String, String]({
+"Mark": "^Mark^? I hate that guy!"
+})
