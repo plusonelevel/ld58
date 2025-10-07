@@ -1760,6 +1760,7 @@ unit_size = 0.5
 autoplay = true
 emission_angle_enabled = true
 emission_angle_degrees = 59.0
+parameters/looping = true
 
 [node name="ShipHornSFX" type="AudioStreamPlayer3D" parent="SFX"]
 transform = Transform3D(0.69026387, -0.12652737, -0.712409, 0, 0.98459184, -0.17486838, 0.7235578, 0.120705314, 0.67962813, -29.886925, 1.6284001, 36.031895)
@@ -1772,6 +1773,7 @@ parameters/looping = true
 [node name="RainSFX" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("54_qg546")
 volume_db = -20.0
+parameters/looping = true
 
 [node name="fountain" type="StaticBody3D" parent="."]
 transform = Transform3D(0.46442476, 0, -0.88561255, 0, 1, 0, 0.88561255, 0, 0.46442476, 1.3865829, -0.029699326, 16.04845)
