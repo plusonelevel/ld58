@@ -6,8 +6,9 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_8iv74"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8iv74"]
-size = Vector3(1.7158203, 0.57592773, 1.1816406)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ij1m5"]
+height = 0.37390137
+radius = 1.0361328
 
 [node name="DialogBubble" type="StaticBody3D"]
 collision_layer = 64
@@ -43,6 +44,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77496314, 0.8766849, 0.59524804)
-shape = SubResource("BoxShape3D_8iv74")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78767806, 1.1499393, 0.58168143)
+shape = SubResource("CylinderShape3D_ij1m5")
 disabled = true

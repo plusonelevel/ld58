@@ -1717,7 +1717,7 @@ transform = Transform3D(-0.12910709, 0, 0.9916307, 0, 1, 0, -0.9916307, 0, -0.12
 transform = Transform3D(0.35, 0, 2.2351742e-08, 0, 0.34999996, 0, -2.2351742e-08, 0, 0.35, 0, 0, 0)
 
 [node name="DialogBubble" parent="NPCs/Worker" instance=ExtResource("5_eo1xk")]
-transform = Transform3D(-0.989483, 0, 0.14464974, 0, 1, 0, -0.14464974, 0, -0.989483, 0, 0, 0)
+transform = Transform3D(-0.5438924, 0, 0.83915514, 0, 1, 0, -0.83915514, 0, -0.5438924, 0.06358719, 0, 0.2388916)
 dialogues = ExtResource("48_1dgkn")
 
 [node name="Worker2" parent="NPCs" instance=ExtResource("2_4wyf3")]
@@ -1727,7 +1727,7 @@ transform = Transform3D(0.8775983, 0, -0.47939673, 0, 1, 0, 0.47939673, 0, 0.877
 transform = Transform3D(0.35000008, 0, 1.4901161e-08, 0, 0.34999996, 0, -1.4901161e-08, 0, 0.35000008, 0, 0, 0)
 
 [node name="DialogBubble" parent="NPCs/Worker2" instance=ExtResource("5_eo1xk")]
-transform = Transform3D(0.9953962, 0, -0.09584576, 0, 1, 0, 0.09584576, 0, 0.9953962, 0, 0, 0)
+transform = Transform3D(0.9953964, 0, -0.09584579, 0, 1, 0, 0.09584579, 0, 0.9953964, -0.2893448, -0.73529935, 0.15805817)
 dialogues = ExtResource("49_qg546")
 
 [node name="Sleeper" parent="NPCs" instance=ExtResource("2_4wyf3")]
