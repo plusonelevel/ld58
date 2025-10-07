@@ -12,7 +12,7 @@ var active := false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready() -> void:
 	Signals.clue_collected.connect(_on_clue_collected)
-	
+
 	_set_next_line()
 	$Sprite3D.modulate.a = 0.0
 	show()
@@ -22,7 +22,7 @@ func _parse_text(sliced_text: Array[String], is_known_clue: bool) -> String:
 		print_debug("ERROR PARSING DIALOG TEXT")
 		print_debug(sliced_text)
 		return "".join(sliced_text)
-	
+
 	var parsed_text = ("[color=%s]" % ("green" if is_known_clue else "red")).join([sliced_text[0], sliced_text[1]])
 	parsed_text = "[/color]".join([parsed_text, sliced_text[2]])
 	return parsed_text
@@ -30,12 +30,12 @@ func _parse_text(sliced_text: Array[String], is_known_clue: bool) -> String:
 func set_text(text: String) -> void:
 	current_unparsed_line = text
 	var slices = text.split("^")
-	
+
 	if slices.size() > 1:
 		var is_known = Inventory.is_clue_known(slices[1])
 		text = _parse_text(slices, is_known)
 		clue = null if is_known else slices[1]
-		
+
 	label.text = text
 
 func activate(tween = create_tween()) -> void:
@@ -63,7 +63,7 @@ func _set_next_line(tween = create_tween()) -> void:
 		lines_idx = 0 if lines_idx < 0 else lines_idx + 1
 		if lines_idx >= dialogues.lines.size():
 			lines_idx = 0
-		
+
 		set_text(dialogues.lines[lines_idx])
 	)
 
@@ -82,22 +82,22 @@ func get_reaction(input: String):
 	var tween = create_tween()
 	if active:
 		_fade_out(tween)
-	
+
 	var reaction_text = dialogues.reactions[key]
 	if reaction_text == "WIN CONDITION":
 		Signals.game_finished.emit()
-		
+
 	tween.tween_callback(func ():
 		set_text(reaction_text)
 	)
-	
+
 	if active:
 		_fade_in(tween)
 	else:
 		activate(tween)
-		
+
 	lines_idx = -999
-		
+
 
 func _on_clue_collected():
 	# Re-parse current line
